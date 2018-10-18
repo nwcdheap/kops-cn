@@ -22,8 +22,9 @@ git clone https://github.com/pahud/kops-cn.git
 |        Name        |                    Description                     | values |
 | :----------------: | :----------------------------------------------------------: | :------------------------: |
 | **TARGET_REGION** | The region code to deploy the Kops cluster          |   **cn-north-1** or **cn-northwest-1**  |
+| **KOPS_STATE_STORE** | Your private S3 bucket to save Kops state | s3://YOUR_S3_BUCKET_NANME |
 | **vpcid** | The existing VPC ID to deploy the cluster | **vpc-xxxxxxxx** |
-| **sshPublicKey** | SSH public key file path in the local | **~/.ssh/id_rsa.pub** [default] |
+| **ssh_public_key** | SSH public key file path in the local | **~/.ssh/id_rsa.pub** [default] |
 
 4. create the cluster
 ```
