@@ -7,11 +7,11 @@ kops create cluster \
      --name=$cluster_name \
      --image=$ami \
      --zones=$zones \
-     --master-count=$masterCount \
-     --master-size=$masterSize \
-     --node-count=$nodeCount \
-     --node-size=$nodeSize  \
+     --master-count=$master_count \
+     --master-size=$master_size \
+     --node-count=$node_count \
+     --node-size=$node_size  \
      --vpc=$vpcid \
      --kubernetes-version=$KUBERNETES_VERSION_URL \
-     --ssh-public-key=$sshPublicKey
+     --ssh-public-key=$ssh_public_key
      
