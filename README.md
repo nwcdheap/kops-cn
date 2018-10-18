@@ -19,9 +19,9 @@ git clone https://github.com/pahud/kops-cn.git
 3. edit `env.config`. You may need to change some of the variables as below
 
 
-|        Name        |                    Description                     | values | 
+|        Name        |                    Description                     | values |
 | :----------------: | :----------------------------------------------------------: | :------------------------: |
-| **TARGET_REGION** | The region code to deploy the Kops cluster          |   **cn-north-1** or **cn-northwest-1**  | 
+| **TARGET_REGION** | The region code to deploy the Kops cluster          |   **cn-north-1** or **cn-northwest-1**  |
 | **vpcid** | The existing VPC ID to deploy the cluster | **vpc-xxxxxxxx** |
 | **sshPublicKey** | SSH public key file path in the local | **~/.ssh/id_rsa.pub** [default] |
 
@@ -45,3 +45,20 @@ kops update cluster $cluster_name --yes
 ```
 
 7. DONE
+
+
+# Validate
+
+It may take 3-5 minutes before you can `kops validate cluster` to validate it as `ready`
+
+![](./images/01.png)
+
+
+
+And check the `cluster-info` as well as the kubernetes client/server version
+
+![](./images/02.png)
+
+
+
+Have Fun!
