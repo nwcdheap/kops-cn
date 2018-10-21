@@ -12,6 +12,6 @@ gcr.io/google_containers/kube-apiserver:v1.10.3
 gcr.io/heptio-images/authenticator:v0.3.0
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.0.0
 quay.io/coreos/flannel:v0.10.0-amd64
-quay.io/coreos/calico/node:v3.2.3
-quay.io/coreos/calico/cni:v3.2.3
+quay.io/calico/node:v3.2.3
+quay.io/calico/cni:v3.2.3
 
