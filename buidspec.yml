@@ -1,0 +1,16 @@
+version: 0.1
+phases:
+  pre_build:
+    commands:
+      - echo "authenticate to Amazon ECR(cn-north-1)"
+      - bash ./mirror/codebuild/bin/bjs_ecr_auth.sh
+  build:
+    commands:
+      - cd mirror
+      - bash mirror-images.sh
+  post_build:
+    commands:
+      - echo "post_build phase"
+artifacts:
+  # files: 
+  discard-paths: yes
