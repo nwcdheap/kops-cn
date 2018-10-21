@@ -5,9 +5,27 @@ ECR_DN="937788672844.dkr.ecr.${ECR_REGION}.amazonaws.com.cn"
 IMAGES_FILE_LIST='required-images.txt'
 
 
+
 function create_ecr_repo() {
-  echo "creating repo: $1"
-  aws --profile=bjs --region ${ECR_REGION} ecr create-repository --repository-name $1
+  if in_array "$1" "$all_erc_repos"
+  then
+    echo "repo: $1 already exists"
+  else
+    echo "creating repo: $1"
+    aws --profile=bjs --region ${ECR_REGION} ecr create-repository --repository-name $1    
+  fi
+}
+
+function in_array() {
+    local list=$2
+    local elem=$1  
+    for i in ${list[@]}
+    do
+        if [ "$i" == "${elem}" ] ; then
+            return 0
+        fi
+    done
+    return 1    
 }
 
 function ecr_login() {
@@ -32,19 +50,23 @@ function pull_and_push(){
 }
 
 
-# #repos=$(cat mirror-images.txt | cut -d: -f1 | sed -e 's#/#-#g')
-# repos=$(cat mirror-images.txt | cut -d: -f1)
-# for r in ${repos[@]}
-# do
-#   # r=${r/\//-}
-#   echo $r
-#   # strip off the prefix
-#   r=${r/gcr.io\/google_containers\//}
-#   r=${r/k8s.gcr.io\//}
-#   r=${r/\//-}
-#   echo $r
-#   create_ecr_repo $r
-# done
+
+# list all existing repos
+all_erc_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
+echo "$all_erc_repos"
+#repos=$(cat mirror-images.txt | cut -d: -f1 | sed -e 's#/#-#g')
+repos=$(cat $IMAGES_FILE_LIST | cut -d: -f1)
+for r in ${repos[@]}
+do
+  # r=${r/\//-}
+  # echo $r
+  # strip off the prefix
+  r=${r/gcr.io\/google_containers\//}
+  r=${r/k8s.gcr.io\//}
+  r=${r/\//-}
+  # echo $r
+  create_ecr_repo $r
+done
 
 # exit 0
 
