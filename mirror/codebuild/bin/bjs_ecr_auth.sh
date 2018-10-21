@@ -17,4 +17,9 @@ rm -f ak.blob sk.blob
 #echo $ak
 #echo $sk
 
-$(AWS_ACCESS_KEY_ID=$ak AWS_SECRET_ACCESS_KEY=$sk aws --region=cn-north-1 ecr get-login)
+aws configure --profile=bjs set aws_access_key_id $ak
+aws configure --profile=bjs set aws_secret_access_key $sk
+aws configure --profile=bjs set default.region cn-north-1
+
+
+# $(AWS_ACCESS_KEY_ID=$ak AWS_SECRET_ACCESS_KEY=$sk aws --region=cn-north-1 ecr get-login)
