@@ -6,8 +6,7 @@ phases:
       - bash ./mirror/codebuild/bin/bjs_ecr_auth.sh
   build:
     commands:
-      - cd mirror
-      - bash mirror-images.sh
+      - cd mirror; bash mirror-images.sh
   post_build:
     commands:
       - echo "post_build phase"
