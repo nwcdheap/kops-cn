@@ -12,8 +12,14 @@ function create_ecr_repo() {
     echo "repo: $1 already exists"
   else
     echo "creating repo: $1"
-    aws --profile=bjs --region ${ECR_REGION} ecr create-repository --repository-name $1    
+    aws --profile=bjs --region ${ECR_REGION} ecr create-repository --repository-name "$1"    
+    attach_policy "$1"
   fi
+}
+
+function attach_policy() {
+  echo "attaching public-read policy on ECR repo: $1"
+  aws --profile bjs --region $ECR_REGION ecr  set-repository-policy --policy-text file://policy.text --repository-name "$1"
 }
 
 function in_array() {
@@ -63,8 +69,9 @@ do
   # strip off the prefix
   r=${r/gcr.io\/google_containers\//}
   r=${r/k8s.gcr.io\//}
-  r=${r/\//-}
+  r=${r//\//-}
   # echo $r
+  #attach_policy $r
   create_ecr_repo $r
 done
 
