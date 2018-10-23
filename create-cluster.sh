@@ -12,6 +12,5 @@ kops create cluster \
      --node-count=$node_count \
      --node-size=$node_size  \
      --vpc=$vpcid \
-     --kubernetes-version=$KUBERNETES_VERSION_URL \
      --ssh-public-key=$ssh_public_key
      
