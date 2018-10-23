@@ -12,9 +12,11 @@ This project is aimed to help you easily deploy the latest kops clusterin AWS Ch
 
 # HOWTO
 
-1. checkout this repository to local
+1. download this repository to local
 ```
-git clone https://github.com/pahud/kops-cn.git
+$ curl  https://github.com/pahud/kops-cn/archive/master.zip -L -o kops-cn.zip
+$ unzip kops-cn
+$ cd kops-cn-master
 ```
 
 2. follow the [installation guide](https://github.com/kubernetes/kops/blob/master/docs/install.md) to install the `kops` and `kubectl` binary on your laptop
