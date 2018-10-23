@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ECR_REGION='cn-northwest-1'
+ECR_REGION='cn-north-1'
 ECR_DN="937788672844.dkr.ecr.${ECR_REGION}.amazonaws.com.cn"
 IMAGES_FILE_LIST='required-images.txt'
 
