@@ -1,7 +1,7 @@
 ![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 # kops-cn
-This project is aimed to help you easily deploy the latest kops clusterin AWS China regions such as NingXia or Beijing region. You will leverage the local mirors of docker images or assets that help you accelerate the cluster creation without suffering the huge latency and connectivity issues from within China to other public sites like `gcr.io`.
+This project is aimed to help you easily deploy the latest kops cluster in AWS China regions such as NingXia or Beijing region. You leverage the local docker images mirror or file repository assets mirror that help you accelerate the cluster creation without suffering the huge latency or connectivity issues from within China to other public sites like `gcr.io`.
 
 # Features
 - [x] All docker images required for kops creation are mirrored in `Amazon ECR` **NingXia** or **Beijing** region.
@@ -68,3 +68,8 @@ And check the `cluster-info` as well as the kubernetes client/server version
 
 
 Have Fun!
+
+# FAQ
+
+## Some docker images missing and can't be pulled from ECR. What can I do?
+As this project configures `containerRegistry` to ECR in `cn-north-1` which only hosts docker images defined in [required-images.txt](https://github.com/pahud/kops-cn/blob/master/mirror/required-images.txt), if you find any required images not available during the cluster creation, please directly edit [required-images.txt](https://github.com/pahud/kops-cn/blob/master/mirror/required-images.txt) from github web UI and this will fork a new branch from your github account so you can submit a PR(pull request) to me. By merging the PR, the `CodeBuild` behind the scene will be triggered and images defined in `required-images.txt` will be mirrored to ECR in `cn-north-1` within a few minutes automatically.
