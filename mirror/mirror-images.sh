@@ -61,7 +61,7 @@ function pull_and_push(){
 all_erc_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
 echo "$all_erc_repos"
 #repos=$(cat mirror-images.txt | cut -d: -f1 | sed -e 's#/#-#g')
-repos=$(cat $IMAGES_FILE_LIST | cut -d: -f1)
+repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1)
 for r in ${repos[@]}
 do
   # r=${r/\//-}
@@ -81,7 +81,7 @@ done
 ecr_login
 
 
-images=$(cat $IMAGES_FILE_LIST)
+images=$(grep -v ^# $IMAGES_FILE_LIST)
 # echo ${images//\//-}
 for i in ${images[@]}
 do
