@@ -75,7 +75,7 @@ $ helm install stable/mysql
 $ helm ls
 NAME          	REVISION	UPDATED                 	STATUS  	CHART       	NAMESPACE
 plucking-manta	1       	Tue Oct 30 16:52:00 2018	DEPLOYED	mysql-0.10.2	default
-$ helm delete plucking-manta
+$ helm del --purge plucking-manta
 release "plucking-manta" deleted
 $ helm status plucking-manta
 LAST DEPLOYED: Tue Oct 30 16:52:00 2018
