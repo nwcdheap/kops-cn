@@ -8,13 +8,13 @@ This project is aimed to help you easily deploy the latest kops cluster in AWS C
 - [x] All binary files or assets required for the cluster creation can be fetched directly from `Amazon S3` **Beijing** region.
 - [x] Fast cluster creation and simple deployment
 - [x] No VPN or secure tunnel required
-- [x] Docker images required will be mirrored to Amazon ECR in `cn-north-1` by **CodeBuild**(see [#1](https://github.com/pahud/kops-cn/issues/1)) triggered by Github push or pull request. See all required image [list](https://github.com/pahud/kops-cn/blob/master/mirror/required-images.txt).
+- [x] Docker images required will be mirrored to Amazon ECR in `cn-north-1` by **CodeBuild**(see [#1](https://github.com/nwcdlabs/kops-cn/issues/1)) triggered by Github push or pull request. See all required image [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
 
 # HOWTO
 
 1. download this repository to local
 ```
-$ curl  https://github.com/pahud/kops-cn/archive/master.zip -L -o kops-cn.zip
+$ curl  https://github.com/nwcdlabs/kops-cn/archive/master.zip -L -o kops-cn.zip
 $ unzip kops-cn
 $ cd kops-cn-master
 ```
@@ -70,11 +70,11 @@ And check the `cluster-info` as well as the kubernetes client/server version
 Have Fun!
 
 # Extra Installation after cluster creation
-* Helm Installation in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Helm.md
-* Istio Installation in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Istio.md
+* Helm Installation in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Helm.md
+* Istio Installation in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Istio.md
 
 
 # FAQ
 
 ## Some docker images missing and can't be pulled from ECR. What can I do?
-As this project configures `containerRegistry` to ECR in `cn-north-1` which only hosts docker images defined in [required-images.txt](https://github.com/pahud/kops-cn/blob/master/mirror/required-images.txt), if you find any required images not available during the cluster creation, please directly edit [required-images.txt](https://github.com/pahud/kops-cn/blob/master/mirror/required-images.txt) from github web UI and this will fork a new branch from your github account so you can submit a PR(pull request) to me. By merging the PR, the `CodeBuild` behind the scene will be triggered and images defined in `required-images.txt` will be mirrored to ECR in `cn-north-1` within a few minutes automatically.
+As this project configures `containerRegistry` to ECR in `cn-north-1` which only hosts docker images defined in [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt), if you find any required images not available during the cluster creation, please directly edit [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) from github web UI and this will fork a new branch from your github account so you can submit a PR(pull request) to me. By merging the PR, the `CodeBuild` behind the scene will be triggered and images defined in `required-images.txt` will be mirrored to ECR in `cn-north-1` within a few minutes automatically.
