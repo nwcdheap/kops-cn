@@ -34,16 +34,16 @@ check all pods in `istio-system` namespace, all pods should be `Running`
 ```
 $ kubectl  -n istio-system get po
 NAME                                     READY     STATUS    RESTARTS   AGE
-grafana-98d47d7c7-rxsjv                  1/1       Running   0          37s
-istio-citadel-768fb44b87-dv4c7           1/1       Running   0          36s
-istio-egressgateway-64d686fb87-qv5sk     1/1       Running   0          37s
-istio-galley-76b59bb6bf-xkqql            1/1       Running   0          37s
-istio-ingressgateway-6fc44d584f-9kd57    1/1       Running   0          37s
-istio-pilot-7f7795c79b-8sqzq             2/2       Running   0          37s
-istio-policy-59bffc4dc5-r2lcx            2/2       Running   0          37s
-istio-sidecar-injector-656696459-2frms   1/1       Running   0          36s
-istio-telemetry-649885f6bd-96hp7         2/2       Running   0          37s
-prometheus-7fcd5846db-wrd4k              1/1       Running   0          36s
+grafana-98d47d7c7-rxsjv                  1/1       Running   0          26s
+istio-citadel-768fb44b87-dv4c7           1/1       Running   0          25s
+istio-egressgateway-64d686fb87-qv5sk     1/1       Running   0          26s
+istio-galley-76b59bb6bf-xkqql            0/1       Running   0          26s
+istio-ingressgateway-6fc44d584f-9kd57    1/1       Running   0          26s
+istio-pilot-7f7795c79b-8sqzq             2/2       Running   0          26s
+istio-policy-59bffc4dc5-r2lcx            2/2       Running   0          26s
+istio-sidecar-injector-656696459-2frms   1/1       Running   0          25s
+istio-telemetry-649885f6bd-96hp7         2/2       Running   0          26s
+prometheus-7fcd5846db-wrd4k              1/1       Running   0          25s
 ```
 
 
