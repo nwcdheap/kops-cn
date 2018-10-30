@@ -69,8 +69,8 @@ And check the `cluster-info` as well as the kubernetes client/server version
 
 Have Fun!
 
-# Quickstart Guides
-* How to install Helm in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Helm.md
+# Extra Installation after cluster creation
+* Helm Installation in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Helm.md
 * Istio Installation in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Istio.md
 
 
