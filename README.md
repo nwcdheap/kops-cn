@@ -69,6 +69,10 @@ And check the `cluster-info` as well as the kubernetes client/server version
 
 Have Fun!
 
+# Quickstart Guides
+* How to install Helm in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Helm.md
+
+
 # FAQ
 
 ## Some docker images missing and can't be pulled from ECR. What can I do?
