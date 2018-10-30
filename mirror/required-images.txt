@@ -1,3 +1,15 @@
+# Istio
+gcr.io/istio-release/proxy_init:master-latest-daily
+gcr.io/istio-release/citadel:master-latest-daily
+gcr.io/istio-release/proxyv2:master-latest-daily
+gcr.io/istio-release/galley:master-latest-daily
+gcr.io/istio-release/pilot:master-latest-daily
+gcr.io/istio-release/mixer:master-latest-daily
+gcr.io/istio-release/kubectl:master-latest-daily
+gcr.io/istio-release/sidecar_injector:master-latest-daily
+
+
+
 # Helm
 gcr.io/kubernetes-helm/tiller:v2.9.1
 
