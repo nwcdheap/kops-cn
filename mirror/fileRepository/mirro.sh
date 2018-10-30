@@ -16,7 +16,9 @@ mirror_kubernetes_release(){
                 mkdir -p ./kubernetes-release/$asset
         fi
         echo gsutil rsync -d -r gs://kubernetes-release/$asset ./kubernetes-release/$asset
-        gsutil -m rsync -d -r gs://kubernetes-release/$asset ./kubernetes-release/$asset
+        gsutil -m rsync -d -r \
+	      -x ".*s390x|.*ppc64le|.*-arm" \
+	      gs://kubernetes-release/$asset ./kubernetes-release/$asset
     done
 }
 
