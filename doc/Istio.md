@@ -2,7 +2,7 @@
 
 ## prepare Helm
 
-follow the [Helm installation guide](https://github.com/pahud/kops-cn/blob/master/doc/Helm.md) to complete the Helm installation.
+follow the [Helm installation guide for China](https://github.com/pahud/kops-cn/blob/master/doc/Helm.md) to complete the Helm installation.
 
 ## checkout the Istio repo
 
