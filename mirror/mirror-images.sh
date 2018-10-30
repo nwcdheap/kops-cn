@@ -3,6 +3,7 @@
 ECR_REGION='cn-north-1'
 ECR_DN="937788672844.dkr.ecr.${ECR_REGION}.amazonaws.com.cn"
 IMAGES_FILE_LIST='required-images.txt'
+NO_TRIM="gcr.io/istio-release/"
 
 
 
@@ -20,6 +21,19 @@ function create_ecr_repo() {
 function attach_policy() {
   echo "attaching public-read policy on ECR repo: $1"
   aws --profile bjs --region $ECR_REGION ecr  set-repository-policy --policy-text file://policy.text --repository-name "$1"
+}
+
+function need_trim() {
+  s=$1
+  for i in $NO_TRIM
+  do 
+    if [ "${s/$i/}" == "$s" ]; then
+      continue
+    else
+      return 1
+    fi
+  done
+  return 0
 }
 
 function in_array() {
@@ -42,10 +56,17 @@ function ecr_login() {
 
 function pull_and_push(){
   origimg="$1"
-  # strip off the prefix
-  img=${origimg/gcr.io\/google_containers\//}
-  img=${img/k8s.gcr.io\//}
-  target_img="$ECR_DN/${img//\//-}"
+  if need_trim $origimg; then
+    echo "$origimg needs triming"
+    # strip off the prefix
+    img=${origimg/gcr.io\/google_containers\//}
+    img=${img/k8s.gcr.io\//}
+    target_img="$ECR_DN/${img//\//-}"
+  else
+    echo "$origimg does not need triming"
+    target_img="$ECR_DN/$origimg"
+  fi
+    
   docker pull $origimg
   echo "tagging $origimg to $target_img"
   docker tag $origimg $target_img
@@ -56,20 +77,19 @@ function pull_and_push(){
 }
 
 
-
 # list all existing repos
 all_erc_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
 echo "$all_erc_repos"
-#repos=$(cat mirror-images.txt | cut -d: -f1 | sed -e 's#/#-#g')
 repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1)
 for r in ${repos[@]}
 do
-  # r=${r/\//-}
-  # echo $r
-  # strip off the prefix
-  r=${r/gcr.io\/google_containers\//}
-  r=${r/k8s.gcr.io\//}
-  r=${r//\//-}
+  if need_trim $r; then
+    # strip off the prefix
+    r=${r/gcr.io\/google_containers\//}
+    r=${r/k8s.gcr.io\//}
+    r=${r//\//-}
+  fi
+  
   # echo $r
   #attach_policy $r
   create_ecr_repo $r
