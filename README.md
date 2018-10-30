@@ -71,6 +71,7 @@ Have Fun!
 
 # Quickstart Guides
 * How to install Helm in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Helm.md
+* Istio Installation in AWS China - https://github.com/pahud/kops-cn/blob/master/doc/Istio.md
 
 
 # FAQ
