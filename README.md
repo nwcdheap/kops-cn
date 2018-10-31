@@ -36,7 +36,7 @@ $ cd kops-cn-master
 // if you need to specify different AWS_PROFILE
 $ export AWS_PROFILE=bjs
 $ source env.config
-$ bash create_cluster.sh
+$ bash create-cluster.sh
 ```
 
 5. edit the cluster
