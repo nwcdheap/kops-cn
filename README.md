@@ -21,6 +21,20 @@ $ cd kops-cn-master
 
 2. follow the [installation guide](https://github.com/kubernetes/kops/blob/master/docs/install.md) to install the `kops` and `kubectl` binary on your laptop
 
+You can also download `kops` and `kubectl` client binary from AWS S3 in China
+
+```
+//kops for linux
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.10.0/linux/amd64/kops
+//kops for mac os
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.10.0/darwin/amd64/kops
+//kubectl for linux
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.10.6/bin/linux/amd64/kubectl
+//kubectl for mac os
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.10.6/bin/darwin/amd64/kubectl
+```
+
+
 3. edit `env.config`. You may need to change some of the variables as below
 
 
