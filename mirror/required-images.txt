@@ -37,3 +37,4 @@ quay.io/calico/cni:v3.2.3
 
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
+quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.20.0
