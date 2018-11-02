@@ -35,4 +35,5 @@ quay.io/coreos/flannel:v0.10.0-amd64
 quay.io/calico/node:v3.2.3
 quay.io/calico/cni:v3.2.3
 
-
+# Nginx Ingress
+gcr.io/google_containers/defaultbackend:1.4
