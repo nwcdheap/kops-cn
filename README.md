@@ -59,6 +59,8 @@ kops edit cluster $cluster_name
 ```
 copy the content of `spec.yml` and insert into the editing window. Make sure the content is under `spec` then save and exit.
 
+![](https://user-images.githubusercontent.com/278432/47897276-084ff880-deac-11e8-92db-b2fdf10e10b4.png)
+
 6. upate the cluster
 ```
 kops update cluster $cluster_name --yes
