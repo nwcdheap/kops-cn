@@ -1,30 +1,30 @@
 ![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
-# kops-cn
+# kops-cn项目介绍
 本项目用于指导客户使用开源自动化部署工具Kops在AWS宁夏区域或北京区域搭建K8S集群。
 本项目已经将K8S集群搭建过程中需要拉取的镜像或文件拉回国内，因此您无需任何翻墙设置。
 
 
 
-# Features
+# 特性
 - [x] 集群创建过程中所需的docker镜像已存放在 **宁夏** 或 **北京** 区域的`Amazon ECR`中。
 - [x] 集群创建过程中所需的二进制文件或配置文件已存放在 **北京** 区域的`Amazon S3`桶中 。
 - [x] 简单快速的集群搭建和部署
 - [x] 无需任何VPN代理或翻墙设置
 - [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**(see [#1](https://github.com/nwcdlabs/kops-cn/issues/1)) 去拉取镜像并存放到AWS `cn-north-1` 的ECR中。集群创建所需镜像列表： [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
 
-# HOWTO
+# 步骤
 
-1. download this repository to local
+1. 下载项目到本地
 ```
 $ curl  https://github.com/nwcdlabs/kops-cn/archive/master.zip -L -o kops-cn.zip
 $ unzip kops-cn
 $ cd kops-cn-master
 ```
 
-2. follow the [installation guide](https://github.com/kubernetes/kops/blob/master/docs/install.md) to install the `kops` and `kubectl` binary on your laptop
+2. 在本机安装`kops` and `kubectl`命令行客户端： [安装指导](https://github.com/kubernetes/kops/blob/master/docs/install.md)
 
-You can also download `kops` and `kubectl` client binary from AWS S3 in China
+您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
 ```
 //kops for linux
@@ -38,15 +38,15 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 ```
 
 
-3. edit `env.config`. You may need to change some of the variables as below
+3. 编辑 `env.config`文件. 您需要设置如下变量
 
 
 |        Name        |                    Description                     | values |
 | :----------------: | :----------------------------------------------------------: | :------------------------: |
-| **TARGET_REGION** | The region code to deploy the Kops cluster          |   **cn-north-1** or **cn-northwest-1**  |
-| **KOPS_STATE_STORE** | Your private S3 bucket to save Kops state | s3://YOUR_S3_BUCKET_NANME |
-| **vpcid** | The existing VPC ID to deploy the cluster | **vpc-xxxxxxxx** |
-| **ssh_public_key** | SSH public key file path in the local | **~/.ssh/id_rsa.pub** [default] |
+| **TARGET_REGION** | 选择将集群部署在aws北京或宁夏区域          |   **cn-north-1** or **cn-northwest-1**  |
+| **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | s3://YOUR_S3_BUCKET_NANME |
+| **vpcid** | 选择将您的部署在哪个VPC中 | **vpc-xxxxxxxx** |
+| **ssh_public_key** | 本地ssh公钥的存放路径 | **~/.ssh/id_rsa.pub** [default] |
 
 4. create the cluster
 ```
