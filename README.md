@@ -1,14 +1,17 @@
 ![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
-# kops-cn  中文版
-This project is aimed to help you easily deploy the latest kops cluster in AWS China regions such as NingXia or Beijing region. You leverage the local docker images mirror or file repository assets mirror that help you accelerate the cluster creation without suffering the huge latency or connectivity issues from within China to other public sites like `gcr.io`.
+# kops-cn
+本项目用于指导客户使用开源自动化部署工具Kops在AWS宁夏区域或北京区域搭建K8S集群。
+本项目已经将K8S集群搭建过程中需要拉取的镜像或文件拉回国内，因此您无需任何翻墙设置。
+
+
 
 # Features
-- [x] All docker images required for kops creation are mirrored in `Amazon ECR` **NingXia** or **Beijing** region.
-- [x] All binary files or assets required for the cluster creation can be fetched directly from `Amazon S3` **Beijing** region.
-- [x] Fast cluster creation and simple deployment
-- [x] No VPN or secure tunnel required
-- [x] Docker images required will be mirrored to Amazon ECR in `cn-north-1` by **CodeBuild**(see [#1](https://github.com/nwcdlabs/kops-cn/issues/1)) triggered by Github push or pull request. See all required image [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
+- [x] 集群创建过程中所需的docker镜像已存放在 **宁夏** 或 **北京** 区域的`Amazon ECR`中。
+- [x] 集群创建过程中所需的二进制文件或配置文件已存放在 **北京** 区域的`Amazon S3`桶中 。
+- [x] 简单快速的集群搭建和部署
+- [x] 无需任何VPN代理或翻墙设置
+- [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**(see [#1](https://github.com/nwcdlabs/kops-cn/issues/1)) 去拉取镜像并存放到AWS `cn-north-1` 的ECR中。集群创建所需镜像列表： [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
 
 # HOWTO
 
