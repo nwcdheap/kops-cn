@@ -34,6 +34,8 @@ gcr.io/heptio-images/authenticator:v0.3.0
 quay.io/coreos/flannel:v0.10.0-amd64
 quay.io/calico/node:v3.2.3
 quay.io/calico/cni:v3.2.3
+quay.io/calico/node:v2.6.7
+quay.io/calico/cni:v1.11.2
 
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
