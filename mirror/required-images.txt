@@ -32,8 +32,13 @@ gcr.io/google_containers/kube-apiserver:v1.10.6
 gcr.io/heptio-images/authenticator:v0.3.0
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.0.0
 quay.io/coreos/flannel:v0.10.0-amd64
+
+# calico cni
 quay.io/calico/node:v3.2.3
 quay.io/calico/cni:v3.2.3
+quay.io/calico/node:v2.6.7
+quay.io/calico/cni:v1.11.2
+quay.io/calico/kube-controllers:v1.0.3
 
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
