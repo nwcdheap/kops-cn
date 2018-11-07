@@ -1,7 +1,8 @@
 ![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 # kops-cn
-This project is aimed to help you easily deploy the latest kops cluster in AWS China regions such as NingXia or Beijing region. You leverage the local docker images mirror or file repository assets mirror that help you accelerate the cluster creation without suffering the huge latency or connectivity issues from within China to other public sites like `gcr.io`.
+This project is aimed to help you easily deploy the latest kops cluster in AWS China regions such as NingXia or Beijing region. You leverage the local docker images mirror or file repository assets mirror that help you accelerate the cluster creation without suffering the huge latency or connectivity issues from within China to other public sites like `gcr.io`.        
+[中文README链接](README_ch.md)   
 
 # Features
 - [x] All docker images required for kops creation are mirrored in `Amazon ECR` **NingXia** or **Beijing** region.
