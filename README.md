@@ -1,28 +1,33 @@
 ![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
-# kops-cn
-This project is aimed to help you easily deploy the latest kops cluster in AWS China regions such as NingXia or Beijing region. You leverage the local docker images mirror or file repository assets mirror that help you accelerate the cluster creation without suffering the huge latency or connectivity issues from within China to other public sites like `gcr.io`.        
-[中文README链接](README_ch.md)   
+[English README](./README_en.md)
 
-# Features
-- [x] All docker images required for kops creation are mirrored in `Amazon ECR` **NingXia** or **Beijing** region.
-- [x] All binary files or assets required for the cluster creation can be fetched directly from `Amazon S3` **Beijing** region.
-- [x] Fast cluster creation and simple deployment
-- [x] No VPN or secure tunnel required
-- [x] Docker images required will be mirrored to Amazon ECR in `cn-north-1` by **CodeBuild**([buildspec.yml](https://github.com/nwcdlabs/kops-cn/blob/master/buildspec.yml)) triggered by Github push or pull request. See all required image [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
+# kops-cn项目介绍
 
-# HOWTO
+本项目用于指导客户使用开源自动化部署工具Kops在AWS宁夏区域或北京区域搭建K8S集群。
+本项目已经将K8S集群搭建过程中需要拉取的镜像或文件拉回国内，因此您无需任何翻墙设置。
 
-1. download this repository to local
+
+
+# 特性
+- [x] 集群创建过程中所需的docker镜像已存放在 **宁夏** 或 **北京** 区域的`Amazon ECR`中。
+- [x] 集群创建过程中所需的二进制文件或配置文件已存放在 **北京** 区域的`Amazon S3`桶中 。
+- [x] 简单快速的集群搭建和部署
+- [x] 无需任何VPN代理或翻墙设置
+- [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**([buildspec.yml](https://github.com/nwcdlabs/kops-cn/blob/master/buildspec.yml))  去拉取镜像并存放到AWS `cn-north-1` 的ECR中。查看： [镜像列表](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
+
+# 步骤
+
+1. 下载项目到本地
 ```
 $ curl  https://github.com/nwcdlabs/kops-cn/archive/master.zip -L -o kops-cn.zip
 $ unzip kops-cn
 $ cd kops-cn-master
 ```
 
-2. follow the [installation guide](https://github.com/kubernetes/kops/blob/master/docs/install.md) to install the `kops` and `kubectl` binary on your laptop
+2. 在本机安装`kops` and `kubectl`命令行客户端： [安装指导](https://github.com/kubernetes/kops/blob/master/docs/install.md)
 
-You can also download `kops` and `kubectl` client binary from AWS S3 in China
+您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
 ```
 //kops for linux
@@ -36,71 +41,71 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 ```
 
 
-3. edit `env.config`. You may need to change some of the variables as below
+3. 编辑 `env.config`文件. 您需要设置如下变量
 
 
 |        Name        |                    Description                     | values |
 | :----------------: | :----------------------------------------------------------: | :------------------------: |
-| **TARGET_REGION** | The region code to deploy the Kops cluster          |   **cn-north-1** or **cn-northwest-1**  |
-| **KOPS_STATE_STORE** | Your private S3 bucket to save Kops state | s3://YOUR_S3_BUCKET_NANME |
-| **vpcid** | The existing VPC ID to deploy the cluster | **vpc-xxxxxxxx** |
-| **ssh_public_key** | SSH public key file path in the local | **~/.ssh/id_rsa.pub** [default] |
+| **TARGET_REGION** | 选择将集群部署在aws北京或宁夏区域          |   **cn-north-1** or **cn-northwest-1**  |
+| **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | s3://YOUR_S3_BUCKET_NANME |
+| **vpcid** | 选择将您的集群部署在哪个VPC中 | **vpc-xxxxxxxx** |
+| **ssh_public_key** | 本地ssh公钥的存放路径 | **~/.ssh/id_rsa.pub** [default] |
 
-4. create the cluster
+4. 创建集群
 ```
-// if you need to specify different AWS_PROFILE
+// 如果客户端存在多个aws profile，需要将中国区域profile明确的export出来：
 $ export AWS_PROFILE=bjs
 $ source env.config
 $ bash create-cluster.sh
 ```
 
-5. edit the cluster
+5. 编辑集群
 ```
 kops edit cluster $cluster_name
 ```
-copy the content of `spec.yml` and insert into the editing window. Make sure the content is under `spec` then save and exit.
+将 `spec.yml` 中内容贴到`spec` 下并保存退出。
 
 ![](https://user-images.githubusercontent.com/278432/47897276-084ff880-deac-11e8-92db-b2fdf10e10b4.png)
 
-6. upate the cluster
+6. 更新集群
 ```
 kops update cluster $cluster_name --yes
 ```
 
-7. DONE
+7. 完成
 
 
-# Validate
+# 验证
 
-It may take 3-5 minutes before you can `kops validate cluster` to validate it as `ready`
+集群的创建大概需要 3-5 分钟时间。之后，使用 `kops validate cluster` 来验证集群是否是 `ready`状态。
 
 ![](./images/01.png)
 
 
 
-And check the `cluster-info` as well as the kubernetes client/server version
+查看集群对外接口信息、版本信息
 
 ![](./images/02.png)
 
 
 
-Have Fun!
+恭喜您已顺利完成!
 
-# Extra Installation after cluster creation
-* Helm Installation in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Helm.md
-* Istio Installation in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Istio.md
+# 插件安装
+* Helm  - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Helm.md
+* Istio - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Istio.md
 
 
 # FAQ
 
-## can't validate the cluster?
-See issue [#5](https://github.com/nwcdlabs/kops-cn/issues/5)
+## 集群验证失败?
+查看 issue [#5](https://github.com/nwcdlabs/kops-cn/issues/5)
 
-## how to SSH into the master node or worker node?
-See issue [#6](https://github.com/nwcdlabs/kops-cn/issues/6)
+## 如何SSH上master节点和worker节点 ?
+查看 issue [#6](https://github.com/nwcdlabs/kops-cn/issues/6)
 
 
-## Some docker images missing and can't be pulled from ECR. What can I do?
-As this project configures `containerRegistry` to ECR in `cn-north-1` which only hosts docker images defined in [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt), if you find any required images not available during the cluster creation, please directly edit [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) from github web UI and this will fork a new branch from your github account so you can submit a PR(pull request) to me. By merging the PR, the `CodeBuild` behind the scene will be triggered and images defined in `required-images.txt` will be mirrored to ECR in `cn-north-1` within a few minutes and you should be able to see this badge icon status change - ![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+## 我需要的docker镜像在ECR中不存在.
+aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt), 如您在集群创建过程中需要其他镜像, 请您编辑 [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) ，这将会在您的GitHub账户中 fork 一个新的分支，之后您可以提交PR（pull request）。 Merge您的PR会触发`CodeBuild` 去拉取 `required-images.txt` 中定义的镜像回ECR库。 数分钟后，您可以看到图标从in-progress变为![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)。
 
-### check all FAQs [here](https://github.com/nwcdlabs/kops-cn/issues?utf8=%E2%9C%93&q=label%3AFAQ)
+### 查看所有FAQs [这里](https://github.com/nwcdlabs/kops-cn/issues?utf8=%E2%9C%93&q=label%3AFAQ)
