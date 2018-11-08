@@ -9,7 +9,7 @@ This project is aimed to help you easily deploy the latest kops cluster in AWS C
 - [x] All binary files or assets required for the cluster creation can be fetched directly from `Amazon S3` **Beijing** region.
 - [x] Fast cluster creation and simple deployment
 - [x] No VPN or secure tunnel required
-- [x] Docker images required will be mirrored to Amazon ECR in `cn-north-1` by **CodeBuild**(see [#1](https://github.com/nwcdlabs/kops-cn/issues/1)) triggered by Github push or pull request. See all required image [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
+- [x] Docker images required will be mirrored to Amazon ECR in `cn-north-1` by **CodeBuild**([buildspec.yml](https://github.com/nwcdlabs/kops-cn/blob/master/buildspec.yml)) triggered by Github push or pull request. See all required image [list](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
 
 # HOWTO
 
