@@ -2,6 +2,13 @@
 
 [English README](./README_en.md)
 
+## 免责说明
+建议测试过程中使用此方案，生产环境使用请自行考虑评估。<br>
+当您对方案需要进一步的沟通和反馈后，可以联系 nwcd_labs@nwcdcloud.cn 获得更进一步的支持。<br>
+欢迎联系参与方案共建和提交方案需求, 也欢迎在 github 项目issue中留言反馈bugs。    
+
+
+
 # kops-cn项目介绍
 
 本项目用于指导客户使用开源自动化部署工具Kops在AWS宁夏区域或北京区域搭建K8S集群。
