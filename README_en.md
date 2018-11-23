@@ -91,6 +91,7 @@ Have Fun!
 # Extra Installation after cluster creation
 * Helm Installation in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Helm.md
 * Istio Installation in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Istio.md
+* AWS ALB Ingress Controller in AWS China - https://github.com/nwcdlabs/kops-cn/blob/master/doc/aws-alb-ingress_en.md
 
 
 # FAQ
