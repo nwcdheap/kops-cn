@@ -119,6 +119,8 @@ curl -sS https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-contr
 
 Edit the `2048-ingress.yaml` file, add `alb.ingress.kubernetes.io/target-type: ip` in the annotations. In this case,  we will leverage the `ip mode` target-type to balance traffic directly across the Pods.
 
+**WARNING** - you need to use `AWS VPC CNI` as the networking mode in Kops cluster creation(`--networking amazon-vpc-routed-eni`, see [doc](https://github.com/kubernetes/kops/blob/master/docs/networking.md#amazon-vpc-backend)) for `ip mode` aws alb ingress. If you are not running your cluster with `AWS VPC CNI`, you need to specify `alb.ingress.kubernetes.io/target-type: instance` for `instance mode`.
+
 
 
 ![](../images/aws-alb-ingress-04.png)
