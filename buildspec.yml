@@ -1,4 +1,12 @@
-version: 0.1
+version: 0.2
+
+env:
+  variables:
+    FOO: "bar"
+  parameter-store:
+    ak: "bjs-ecr-ak"
+    sk: "bjs-ecr-sk"
+
 phases:
   pre_build:
     commands:
