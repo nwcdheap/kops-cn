@@ -8,7 +8,7 @@ NO_TRIM="gcr.io/istio-release/"
 
 
 function create_ecr_repo() {
-  if in_array "$1" "$all_erc_repos"
+  if in_array "$1" "$all_ecr_repos"
   then
     echo "repo: $1 already exists"
   else
@@ -78,8 +78,8 @@ function pull_and_push(){
 
 
 # list all existing repos
-all_erc_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
-echo "$all_erc_repos"
+all_ecr_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
+echo "$all_ecr_repos"
 repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1)
 for r in ${repos[@]}
 do
