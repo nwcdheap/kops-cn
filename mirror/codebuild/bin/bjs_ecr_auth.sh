@@ -1,4 +1,5 @@
 #!/bin/bash
+env
 
 # retrieve BJS credentials for ECR pusher
 
@@ -11,6 +12,7 @@
 # rm -f ak.blob sk.blob
 #echo $ak
 #echo $sk
+echo "foo=$foo"
 
 aws configure --profile=bjs set aws_access_key_id $ak
 aws configure --profile=bjs set aws_secret_access_key $sk

@@ -29,10 +29,10 @@ k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.10
 k8s.gcr.io/cluster-proportional-autoscaler-amd64:1.1.2-r2
 gcr.io/google_containers/etcd:2.2.1
 gcr.io/google_containers/pause-amd64:3.0
-gcr.io/google_containers/kube-controller-manager:v1.10.6
-gcr.io/google_containers/kube-scheduler:v1.10.6
-gcr.io/google_containers/kube-proxy:v1.10.6
-gcr.io/google_containers/kube-apiserver:v1.10.6
+gcr.io/google_containers/kube-controller-manager:v1.10.11
+gcr.io/google_containers/kube-scheduler:v1.10.11
+gcr.io/google_containers/kube-proxy:v1.10.11
+gcr.io/google_containers/kube-apiserver:v1.10.11
 gcr.io/heptio-images/authenticator:v0.3.0
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.0.0
 quay.io/coreos/flannel:v0.10.0-amd64
