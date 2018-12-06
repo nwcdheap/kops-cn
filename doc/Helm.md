@@ -39,7 +39,7 @@ If you describe the pod you'll see the image is from `gcr.io/kubernetes-helm/til
 We need to update the deployment and set another image from ECR
 
 ```
-kubectl -n kube-system set image deploy/tiller-deploy tiller=937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/gcr.io-kubernetes-helm-tiller:v2.9.1
+kubectl -n kube-system set image deploy/tiller-deploy tiller=937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/gcr.io-kubernetes-helm-tiller:v2.11.0
 ```
 
 The deployment will be successful.
