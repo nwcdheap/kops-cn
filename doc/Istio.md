@@ -16,6 +16,21 @@ $ git clone https://github.com/istio/istio.git
 $ kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml
 ```
 
+# update the chart dependency
+
+Add istio.io chart repository and point to the daily release:
+
+```
+$ helm repo add istio.io https://storage.googleapis.com/istio-prerelease/daily-build/master-latest-daily/charts
+```
+
+Build the Helm dependencies:
+
+```
+$ helm dep update install/kubernetes/helm/istio
+```
+
+# install
 
 Install `istio` by overriding the `global.hub` attribute in [values.yaml](https://github.com/istio/istio/blob/master/install/kubernetes/helm/istio/values.yaml)
 
