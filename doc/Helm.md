@@ -33,7 +33,7 @@ However, if you describe the tiller pod you will notice it fails to pull image.
 tiller-deploy-f9b8476d-hnnmm                                              0/1       ErrImagePull   0          21s
 ```
 
-If you describe the pod you'll see the image is from `gcr.io/kubernetes-helm/tiller:v2.9.1`, which can not be pulled from China. 
+If you describe the pod you'll see the image is from `gcr.io/kubernetes-helm/tiller:v2.11.0`, which can not be pulled from China. (please note the version `v2.11.0` might change over time)
 
 
 We need to update the deployment and set another image from ECR
