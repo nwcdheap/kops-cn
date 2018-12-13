@@ -6,3 +6,22 @@ spec:
     logDriver: ""
     registryMirrors:
         - https://registry.docker-cn.com
+  etcdClusters:
+  - etcdMembers:
+    - instanceGroup: master-cn-north-1a-1
+      name: a-1
+    - instanceGroup: master-cn-north-1b-1
+      name: b-1
+    - instanceGroup: master-cn-north-1a-2
+      name: a-2
+    name: main
+    version: 3.2.18
+  - etcdMembers:
+    - instanceGroup: master-cn-north-1a-1
+      name: a-1
+    - instanceGroup: master-cn-north-1b-1
+      name: b-1
+    - instanceGroup: master-cn-north-1a-2
+      name: a-2
+    name: events
+    version: 3.2.18
