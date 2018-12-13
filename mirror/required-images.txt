@@ -19,6 +19,13 @@ gcr.io/istio-release/mixer:release-1.0-latest-daily
 gcr.io/istio-release/kubectl:release-1.0-latest-daily
 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily
 
+# Istio with release-1.0.5
+gcr.io/istio-release/proxyv2:1.0.5
+gcr.io/istio-release/citadel:1.0.5
+gcr.io/istio-release/galley:1.0.5
+gcr.io/istio-release/pilot:1.0.5
+gcr.io/istio-release/mixer:1.0.5
+gcr.io/istio-release/sidecar_injector:1.0.5
 
 # Helm
 gcr.io/kubernetes-helm/tiller:v2.11.0
