@@ -59,3 +59,7 @@ quay.io/calico/kube-controllers:v1.0.3
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.20.0
+
+
+# ETCD v3 
+k8s.gcr.io/etcd:3.2.18
