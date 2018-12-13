@@ -64,6 +64,8 @@ copy the content of `spec.yml` and insert into the editing window. Make sure the
 
 ![](https://user-images.githubusercontent.com/278432/47897276-084ff880-deac-11e8-92db-b2fdf10e10b4.png)
 
+NOTE: Kops upstream will eventually use `etcd3` as the default cluster, if you prefer to go to `v3` at this moment to reduce possible upgrade risk and difficulties in the future, follow this [thread](https://github.com/nwcdlabs/kops-cn/issues/31) to customize your `spec.yml`
+
 6. upate the cluster
 ```
 kops update cluster $cluster_name --yes
