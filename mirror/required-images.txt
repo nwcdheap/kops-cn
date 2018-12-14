@@ -46,6 +46,9 @@ gcr.io/google_containers/kube-proxy:v1.10.11
 gcr.io/google_containers/kube-apiserver:v1.10.11
 gcr.io/heptio-images/authenticator:v0.3.0
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.0.0
+602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.2.0
+602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.2.1
+602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:1.3.0
 quay.io/coreos/flannel:v0.10.0-amd64
 ottoyiu/k8s-ec2-srcdst:v0.2.0-3-gc0c26eca
 
