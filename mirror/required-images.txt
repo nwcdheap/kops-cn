@@ -22,6 +22,7 @@ gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily
 
 # Helm
 gcr.io/kubernetes-helm/tiller:v2.11.0
+gcr.io/kubernetes-helm/tiller:v2.12.1
 
 # required for kubernetes-sigs/aws-alb-ingress-controller
 # https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/e84c57d09bb166cf39d6e760d69aaf57961bbc96/alb-ingress-controller-helm/values.yaml#L18-L19
