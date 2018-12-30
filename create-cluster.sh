@@ -15,5 +15,6 @@ kops create cluster \
      --node-size=$node_size  \
      --vpc=$vpcid \
      --kubernetes-version="$kubernetesVersion" \
+     --networking=amazon-vpc-routed-eni \
      --ssh-public-key=$ssh_public_key
      
