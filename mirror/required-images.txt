@@ -34,7 +34,7 @@ quay.io/coreos/alb-ingress-controller:latest
 
 
 # required for Kops cluster creation
-kope/dns-controller:1.10.0
+kope/dns-controller:1.10.1
 k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.10
 k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.10
 k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.10
