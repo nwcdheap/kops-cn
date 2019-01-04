@@ -54,7 +54,7 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 |        Name        |                    Description                     | values |
 | :----------------: | :----------------------------------------------------------: | :------------------------: |
 | **TARGET_REGION** | 选择将集群部署在aws北京或宁夏区域          |   **cn-north-1** or **cn-northwest-1**  |
-| **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | s3://YOUR_S3_BUCKET_NANME |
+| **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | s3://YOUR_S3_BUCKET_NAME |
 | **vpcid** | 选择将您的集群部署在哪个VPC中 | **vpc-xxxxxxxx** |
 | **ssh_public_key** | 本地ssh公钥的存放路径 | **~/.ssh/id_rsa.pub** [default] |
 
