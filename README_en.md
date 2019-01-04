@@ -28,13 +28,13 @@ You can also download `kops` and `kubectl` client binary from AWS S3 in China
 
 ```
 //kops for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.10.1/linux/amd64/kops
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.0/linux/amd64/kops
 //kops for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.10.1/darwin/amd64/kops
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.0/darwin/amd64/kops
 //kubectl for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.10.11/bin/linux/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.6/bin/linux/amd64/kubectl
 //kubectl for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.10.11/bin/darwin/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.6/bin/darwin/amd64/kubectl
 ```
 
 
