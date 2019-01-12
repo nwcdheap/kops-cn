@@ -26,9 +26,11 @@ gcr.io/kubernetes-helm/tiller:v2.12.1
 
 # required for kubernetes-sigs/aws-alb-ingress-controller
 # https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/e84c57d09bb166cf39d6e760d69aaf57961bbc96/alb-ingress-controller-helm/values.yaml#L18-L19
-quay.io/coreos/alb-ingress-controller:1.0-beta.7
-quay.io/coreos/alb-ingress-controller:v1.0.0
-quay.io/coreos/alb-ingress-controller:v1.0.1
+#quay.io/coreos/alb-ingress-controller:1.0-beta.7
+#quay.io/coreos/alb-ingress-controller:v1.0.0
+#quay.io/coreos/alb-ingress-controller:v1.0.1
+894847497797.dkr.ecr.us-west-2.amazonaws.com/aws-alb-ingress-controller:v1.0.0
+894847497797.dkr.ecr.us-west-2.amazonaws.com/aws-alb-ingress-controller:v1.0.1
 
 
 
