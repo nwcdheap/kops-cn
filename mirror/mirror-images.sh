@@ -73,7 +73,7 @@ function in_array() {
 function ecr_login() {
   aws --profile=bjs ecr --region cn-northwest-1 get-login --no-include-email | sh
   aws --profile=bjs ecr --region cn-north-1 get-login --no-include-email | sh
-  aws ecr get-login --region us-west-2 --registry-ids 602401143452 --no-include-email | sh
+  aws ecr get-login --region us-west-2 --registry-ids 602401143452 894847497797 --no-include-email | sh
 }
 
 function pull_and_push(){
