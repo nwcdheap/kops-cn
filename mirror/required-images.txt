@@ -29,7 +29,6 @@ gcr.io/kubernetes-helm/tiller:v2.12.1
 quay.io/coreos/alb-ingress-controller:1.0-beta.7
 quay.io/coreos/alb-ingress-controller:v1.0.0
 quay.io/coreos/alb-ingress-controller:v1.0.1
-quay.io/coreos/alb-ingress-controller:latest
 
 
 
