@@ -97,8 +97,7 @@ function pull_and_push(){
   echo "$digests"
   echo "checking if remote image exists"
 
-  is_remote_image_exists $target_img $digests
-  if [ $? -eq 0 ];then 
+  if is_remote_image_exists $target_img $digests;then 
     echo "[SKIP] image already exists, skip"
   else
     echo "[PUSH] remote image not exists or digests not match, pushing $target_img"
@@ -113,7 +112,7 @@ function pull_and_push(){
 # list all existing repos
 all_ecr_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
 echo "$all_ecr_repos"
-repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1)
+repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1 | sort -u)
 for r in ${repos[@]}
 do
   if need_trim $r; then
