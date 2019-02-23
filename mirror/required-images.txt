@@ -18,6 +18,7 @@ gcr.io/heptio-images/authenticator:v0.3.0
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:v1.3.2
 quay.io/coreos/flannel:v0.10.0-amd64
 ottoyiu/k8s-ec2-srcdst:v0.2.0-3-gc0c26eca
+ottoyiu/k8s-ec2-srcdst:v0.2.2
 
 # required for kubernetes-sigs/aws-alb-ingress-controller
 # https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/e84c57d09bb166cf39d6e760d69aaf57961bbc96/alb-ingress-controller-helm/values.yaml#L18-L19
@@ -29,9 +30,10 @@ ottoyiu/k8s-ec2-srcdst:v0.2.0-3-gc0c26eca
 # calico cni
 quay.io/calico/node:v3.2.3
 quay.io/calico/cni:v3.2.3
-quay.io/calico/node:v2.6.7
-quay.io/calico/cni:v1.11.2
-quay.io/calico/kube-controllers:v1.0.3
+quay.io/calico/node:v2.6.12
+quay.io/calico/cni:v1.11.8
+quay.io/calico/kube-controllers:v1.0.5
+quay.io/calico/kube-policy-controller:v0.7.0
 
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
