@@ -24,9 +24,7 @@ ottoyiu/k8s-ec2-srcdst:v0.2.0-3-gc0c26eca
 #quay.io/coreos/alb-ingress-controller:1.0-beta.7
 #quay.io/coreos/alb-ingress-controller:v1.0.0
 #quay.io/coreos/alb-ingress-controller:v1.0.1
-894847497797.dkr.ecr.us-west-2.amazonaws.com/aws-alb-ingress-controller:v1.0.0
-894847497797.dkr.ecr.us-west-2.amazonaws.com/aws-alb-ingress-controller:v1.0.1
-
+894847497797.dkr.ecr.us-west-2.amazonaws.com/aws-alb-ingress-controller:v1.1.1
 
 # calico cni
 quay.io/calico/node:v3.2.3
