@@ -36,6 +36,8 @@ quay.io/calico/cni:v3.2.3
 quay.io/calico/node:v2.6.7
 quay.io/calico/cni:v1.11.2
 quay.io/calico/kube-controllers:v1.0.3
+quay.io/calico/kube-controllers:v1.0.5
+quay.io/calico/calico-upgrade:v1.0.5
 
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
@@ -44,6 +46,7 @@ quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.20.0
 
 # ETCD v3 
 k8s.gcr.io/etcd:3.2.18
+k8s.gcr.io/etcd:3.2.24
 
 #Kubernates dashboard
 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
