@@ -28,8 +28,8 @@ ottoyiu/k8s-ec2-srcdst:v0.2.2
 894847497797.dkr.ecr.us-west-2.amazonaws.com/aws-alb-ingress-controller:v1.1.1
 
 # calico cni
-quay.io/calico/node:v3.2.3
-quay.io/calico/cni:v3.2.3
+quay.io/calico/node:v3.4.0
+quay.io/calico/cni:v3.4.0
 quay.io/calico/node:v2.6.12
 quay.io/calico/cni:v1.11.8
 quay.io/calico/kube-controllers:v1.0.5
