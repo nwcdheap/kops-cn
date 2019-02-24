@@ -34,7 +34,6 @@ quay.io/calico/node:v2.6.12
 quay.io/calico/cni:v1.11.8
 quay.io/calico/kube-controllers:v1.0.5
 quay.io/calico/kube-policy-controller:v0.7.0
-quay.io/calico/calico-upgrade:v1.0.5
 
 # Nginx Ingress
 gcr.io/google_containers/defaultbackend:1.4
