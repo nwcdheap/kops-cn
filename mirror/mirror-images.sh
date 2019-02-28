@@ -104,8 +104,8 @@ function pull_and_push(){
     docker push $target_img
   fi
 
-  echo "clean up, deleting $origimg and $target_img"
-  docker rmi $origimg $target_img
+  #echo "clean up, deleting $origimg and $target_img"
+  #docker rmi $origimg $target_img
 }
 
 
