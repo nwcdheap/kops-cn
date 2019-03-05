@@ -22,7 +22,7 @@
 - [x] 简单快速的集群搭建和部署
 - [x] 无需任何VPN代理或翻墙设置
 - [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**([buildspec.yml](https://github.com/nwcdlabs/kops-cn/blob/master/buildspec.yml))  去拉取镜像并存放到AWS `cn-north-1` 的ECR中。查看： [镜像列表](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
-
+- [x] 一个`make create-cluster`命令即可创建集群
 # 步骤
 
 1. 下载项目到本地
@@ -48,35 +48,40 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 ```
 
 
-3. 编辑 `env.config`文件. 您需要设置如下变量
+3. 编辑 `Makefile`文件. 您需要设置如下变量
 
 
 |        Name        |                    Description                     | values |
 | :----------------: | :----------------------------------------------------------: | :------------------------: |
-| **TARGET_REGION** | 选择将集群部署在aws北京或宁夏区域          |   **cn-north-1** or **cn-northwest-1**  |
-| **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | s3://YOUR_S3_BUCKET_NAME |
-| **vpcid** | 选择将您的集群部署在哪个VPC中 | **vpc-xxxxxxxx** |
-| **ssh_public_key** | 本地ssh公钥的存放路径 | **~/.ssh/id_rsa.pub** [default] |
+| **TARGET_REGION** | 选择将集群部署在aws北京或宁夏区域        |   **cn-north-1** or **cn-northwest-1**  |
+| **AWS_PROFILE** | 选择制定其他不同的`AWS_PROFILE` | **default** |
+| **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | `s3://YOUR_S3_BUCKET_NANME` |
+| **VPCID** | 选择将您的集群部署在哪个VPC中 | **vpc-xxxxxxxx** |
+| **MASTER_COUNT** | master节点的机器数量 | **3** (建议不要修改) |
+| **MASTER_SIZE** | master节点的机器类型 | | 
+| **NODE_SIZE** | 工作节点的机器类型 | | 
+| **NODE_COUNT** | 工作节点的机器数量 | | 
+| **SSH_PUBLIC_KEY** | 本地ssh公钥的存放路径 |**~/.ssh/id_rsa.pub** [default] |
+| **KUBERNETES_VERSION** | 指定kubernetes版本 |(建议不要修改)  |
+| **KOPS_VERSION** | 指定kops版本 | (建议不要修改) |
 
 4. 创建集群
 ```
-// 如果客户端存在多个aws profile，需要将中国区域profile明确的export出来：
-$ export AWS_PROFILE=bjs
-$ source env.config
-$ bash create-cluster.sh
+make create-cluster
 ```
 
 5. 编辑集群
 ```
-kops edit cluster $cluster_name
+make edit-cluster
 ```
+
 将 `spec.yml` 中内容贴到`spec` 下并保存退出。
 
 ![](https://user-images.githubusercontent.com/278432/47897276-084ff880-deac-11e8-92db-b2fdf10e10b4.png)
 
 6. 更新集群
 ```
-kops update cluster $cluster_name --yes
+make update-cluster
 ```
 
 7. 完成
@@ -84,7 +89,17 @@ kops update cluster $cluster_name --yes
 
 # 验证
 
-集群的创建大概需要 3-5 分钟时间。之后，使用 `kops validate cluster` 来验证集群是否是 `ready`状态。
+集群的创建大概需要 3-5 分钟时间。之后，使用
+
+```
+kops validate cluster
+``` 
+或是
+```
+make validate-cluster
+```
+
+来验证集群是否是 `ready`状态。
 
 ![](./images/01.png)
 
@@ -95,8 +110,13 @@ kops update cluster $cluster_name --yes
 ![](./images/02.png)
 
 
-
 恭喜您已顺利完成!
+
+最后，您可以这样删除整个集群资源
+
+```
+make delete-cluster
+```
 
 # 插件安装
 * Helm  - https://github.com/nwcdlabs/kops-cn/blob/master/doc/Helm.md
