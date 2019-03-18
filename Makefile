@@ -88,3 +88,20 @@ update-cluster:
 	AWS_REGION=$(AWS_REGION) \
 	AWS_DEFAULT_REGION=$(AWS_DEFAULT_REGION) \
 	kops delete cluster --name $(CLUSTER_NAME) --yes
+	
+.PHONY: rolling-update-cluster
+rolling-update-cluster:
+	@KOPS_STATE_STORE=$(KOPS_STATE_STORE) \
+	AWS_PROFILE=$(AWS_PROFILE) \
+        AWS_REGION=$(AWS_REGION) \
+        AWS_DEFAULT_REGION=$(AWS_DEFAULT_REGION) \
+        kops rolling-update cluster --name $(CLUSTER_NAME) --yes --cloudonly
+
+
+.PHONY: get-cluster
+get-cluster:
+	@KOPS_STATE_STORE=$(KOPS_STATE_STORE) \
+        AWS_PROFILE=$(AWS_PROFILE) \
+        AWS_REGION=$(AWS_REGION) \
+        AWS_DEFAULT_REGION=$(AWS_DEFAULT_REGION) \
+        kops get cluster --name $(CLUSTER_NAME)
