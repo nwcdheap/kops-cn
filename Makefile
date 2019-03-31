@@ -8,7 +8,7 @@ MASTER_SIZE ?= m4.large
 NODE_SIZE ?= c5.large
 NODE_COUNT ?= 2
 SSH_PUBLIC_KEY ?= ~/.ssh/id_rsa.pub
-KUBERNETES_VERSION ?= v1.11.7
+KUBERNETES_VERSION ?= v1.11.8
 KOPS_VERSION ?= 1.11.1
 
 # do not modify following values
@@ -16,13 +16,13 @@ AWS_DEFAULT_REGION ?= $(TARGET_REGION)
 AWS_REGION ?= $(AWS_DEFAULT_REGION)
 ifeq ($(TARGET_REGION) ,cn-north-1)
 	CLUSTER_NAME ?= cluster.bjs.k8s.local
-	AMI ?= ami-0caaf17a3032c1b56
+	AMI ?= 	ami-01e99c7e0a343d325
 	ZONES ?= cn-north-1a,cn-north-1b
 endif
 
 ifeq ($(TARGET_REGION) ,cn-northwest-1)
 	CLUSTER_NAME ?= cluster.zhy.k8s.local
-	AMI ?= ami-0a863f3b0a0720e6a
+	AMI ?= ami-0773341917796083a
 	ZONES ?= cn-northwest-1a,cn-northwest-1b,cn-northwest-1c
 endif
 

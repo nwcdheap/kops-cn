@@ -34,9 +34,9 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.1/linux
 //kops for mac os
 https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.1/darwin/amd64/kops
 //kubectl for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.7/bin/linux/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.8/bin/linux/amd64/kubectl
 //kubectl for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.7/bin/darwin/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.8/bin/darwin/amd64/kubectl
 ```
 
 
@@ -50,9 +50,9 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 | **KOPS_STATE_STORE** | Your private S3 bucket to save Kops state | `s3://YOUR_S3_BUCKET_NANME` |
 | **VPCID** | The existing VPC ID to deploy the cluster | **vpc-xxxxxxxx** |
 | **MASTER_COUNT** | number of the master nodes | **3** (recommended to leave it as is) |
-| **MASTER_SIZE** | instance type of the master nodes | | 
-| **NODE_SIZE** | instance type of the node group | | 
-| **NODE_COUNT** | instance number of the node group | | 
+| **MASTER_SIZE** | instance type of the master nodes | |
+| **NODE_SIZE** | instance type of the node group | |
+| **NODE_COUNT** | instance number of the node group | |
 | **SSH_PUBLIC_KEY** | your ssh public key file path at your client |**~/.ssh/id_rsa.pub** [default] |
 | **KUBERNETES_VERSION** | current kubernetes version | |
 | **KOPS_VERSION** | current kops version ||
@@ -86,13 +86,13 @@ It may take 3-5 minutes before you can
 
 ```
 kops validate cluster
-``` 
+```
 
 or 
 
 ```
 make validate-cluster
-``` 
+```
 
 to validate it as `ready`
 

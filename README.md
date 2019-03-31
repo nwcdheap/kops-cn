@@ -42,9 +42,9 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.1/linux
 //kops for mac os
 https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.1/darwin/amd64/kops
 //kubectl for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.7/bin/linux/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.8/bin/linux/amd64/kubectl
 //kubectl for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.7/bin/darwin/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.8/bin/darwin/amd64/kubectl
 ```
 
 
@@ -58,9 +58,9 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 | **KOPS_STATE_STORE** | 您需要提供一个S3桶给KOPS存放配置信息 | `s3://YOUR_S3_BUCKET_NANME` |
 | **VPCID** | 选择将您的集群部署在哪个VPC中 | **vpc-xxxxxxxx** |
 | **MASTER_COUNT** | master节点的机器数量 | **3** (建议不要修改) |
-| **MASTER_SIZE** | master节点的机器类型 | | 
-| **NODE_SIZE** | 工作节点的机器类型 | | 
-| **NODE_COUNT** | 工作节点的机器数量 | | 
+| **MASTER_SIZE** | master节点的机器类型 | |
+| **NODE_SIZE** | 工作节点的机器类型 | |
+| **NODE_COUNT** | 工作节点的机器数量 | |
 | **SSH_PUBLIC_KEY** | 本地ssh公钥的存放路径 |**~/.ssh/id_rsa.pub** [default] |
 | **KUBERNETES_VERSION** | 指定kubernetes版本 |(建议不要修改)  |
 | **KOPS_VERSION** | 指定kops版本 | (建议不要修改) |
@@ -93,7 +93,7 @@ make update-cluster
 
 ```
 kops validate cluster
-``` 
+```
 或是
 ```
 make validate-cluster
