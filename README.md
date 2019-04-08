@@ -42,9 +42,9 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.1/linux
 //kops for mac os
 https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.11.1/darwin/amd64/kops
 //kubectl for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.8/bin/linux/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.9/bin/linux/amd64/kubectl
 //kubectl for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.8/bin/darwin/amd64/kubectl
+https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.11.9/bin/darwin/amd64/kubectl
 ```
 
 

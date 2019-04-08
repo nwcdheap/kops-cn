@@ -8,7 +8,7 @@ MASTER_SIZE ?= m4.large
 NODE_SIZE ?= c5.large
 NODE_COUNT ?= 2
 SSH_PUBLIC_KEY ?= ~/.ssh/id_rsa.pub
-KUBERNETES_VERSION ?= v1.11.8
+KUBERNETES_VERSION ?= v1.11.9
 KOPS_VERSION ?= 1.11.1
 
 # do not modify following values
