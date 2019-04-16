@@ -53,7 +53,7 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 | **MASTER_SIZE** | instance type of the master nodes | |
 | **NODE_SIZE** | instance type of the node group | |
 | **NODE_COUNT** | instance number of the node group | |
-| **SSH_PUBLIC_KEY** | your ssh public key file path at your client |**~/.ssh/id_rsa.pub** [default] |
+| **SSH_PUBLIC_KEY** | your ssh public key file path at your client(check this [issue](https://github.com/nwcdlabs/kops-cn/issues/68#issuecomment-483879369) to learn how to generate a new public key) |**~/.ssh/id_rsa.pub** [default] |
 | **KUBERNETES_VERSION** | current kubernetes version | |
 | **KOPS_VERSION** | current kops version ||
 
