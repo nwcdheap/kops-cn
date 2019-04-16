@@ -61,7 +61,7 @@ https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-releas
 | **MASTER_SIZE** | master节点的机器类型 | |
 | **NODE_SIZE** | 工作节点的机器类型 | |
 | **NODE_COUNT** | 工作节点的机器数量 | |
-| **SSH_PUBLIC_KEY** | 本地ssh公钥的存放路径 |**~/.ssh/id_rsa.pub** [default] |
+| **SSH_PUBLIC_KEY** | 本地ssh公钥的存放路径(或参考[这里](https://github.com/nwcdlabs/kops-cn/issues/68#issuecomment-483879369)生成一个新的公钥) |**~/.ssh/id_rsa.pub** [default] |
 | **KUBERNETES_VERSION** | 指定kubernetes版本 |(建议不要修改)  |
 | **KOPS_VERSION** | 指定kops版本 | (建议不要修改) |
 
