@@ -74,4 +74,4 @@ gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily
 
 
 # Helm
-gcr.io/kubernetes-helm/tiller:v2.12.3
+gcr.io/kubernetes-helm/tiller:v2.13.1
