@@ -51,6 +51,9 @@ k8s.gcr.io/etcd:3.2.24
 #Kubernates dashboard
 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 
+# Helm
+gcr.io/kubernetes-helm/tiller:v2.13.1
+
 # Istio with master branch
 gcr.io/istio-release/proxy_init:master-latest-daily
 gcr.io/istio-release/citadel:master-latest-daily
@@ -71,7 +74,3 @@ gcr.io/istio-release/pilot:release-1.0-latest-daily
 gcr.io/istio-release/mixer:release-1.0-latest-daily
 gcr.io/istio-release/kubectl:release-1.0-latest-daily
 gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily
-
-
-# Helm
-gcr.io/kubernetes-helm/tiller:v2.13.1
