@@ -23,7 +23,7 @@ about: Create a report to help us improve
 
 **6. What did you expect to happen?**
 
-**7. Please provide the content of your `Makefile` and how did you run the make command
+**7. Please provide the content of your `Makefile` and how did you run the `make` command
   You may want to remove your cluster name and other sensitive information.**
 
 **8. Anything else do we need to know?**
