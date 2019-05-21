@@ -8,6 +8,9 @@ env:
     sk: "bjs-ecr-sk"
 
 phases:
+  install:
+    runtime-versions: 
+        docker: 18
   pre_build:
     commands:
       - echo "authenticate to Amazon ECR(cn-north-1)"
