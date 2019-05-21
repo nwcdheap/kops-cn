@@ -52,7 +52,6 @@ create-cluster:
      --vpc=$(VPCID) \
      --kubernetes-version=$(KUBERNETES_VERSION_URI) \
      --networking=amazon-vpc-routed-eni \
-     --subnets=subnet-0694ca9e79cc3cfb6,subnet-03a0e3db1d77db089,subnet-050da82a687ff4968 \
      --ssh-public-key=$(SSH_PUBLIC_KEY)
      
      
