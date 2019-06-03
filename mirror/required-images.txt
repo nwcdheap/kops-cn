@@ -56,6 +56,11 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 gcr.io/kubernetes-helm/tiller:v2.13.1
 gcr.io/kubernetes-helm/tiller:v2.14.0
 
+# Required for eksworkshop.com
+k8s.gcr.io/hpa-example
+gcr.io/google_containers/metrics-server-amd64:v0.3.1
+k8s.gcr.io/cluster-autoscaler:v1.2.2
+
 # Istio with master branch
 gcr.io/istio-release/proxy_init:master-latest-daily
 gcr.io/istio-release/citadel:master-latest-daily
