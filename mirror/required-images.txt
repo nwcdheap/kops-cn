@@ -54,6 +54,7 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 
 # Helm
 gcr.io/kubernetes-helm/tiller:v2.13.1
+gcr.io/kubernetes-helm/tiller:v2.14.0
 
 # Istio with master branch
 gcr.io/istio-release/proxy_init:master-latest-daily
