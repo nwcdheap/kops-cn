@@ -51,5 +51,6 @@ prometheus-5b48f5d49-fl5s5                              1/1     Running     0   
 ```bash
 $ helm template install/kubernetes/helm/istio --name istio --namespace istio-system | kubectl delete -f -
 $ kubectl delete namespace istio-system
+$ kubectl delete -f install/kubernetes/helm/istio-init/files
 ```
 (please reference the [Istio official document](https://istio.io/docs/setup/kubernetes/helm-install/#uninstall) for clean up or uninstall)
