@@ -1,4 +1,4 @@
-# Istio installation with Helm and Tiller via helm 
+# Istio installation with Helm
 
 ## prepare Helm
 
