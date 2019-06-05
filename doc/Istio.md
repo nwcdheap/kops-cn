@@ -5,13 +5,13 @@
 follow the [Helm installation guide](Helm.md) to complete the Helm installation.
 
 
+## install Istio with 'helm template' command
+
+As we hosted and mirrored the Istio required [images](https://github.com/nwcdlabs/kops-cn/blob/18b89e88253904aa2f5a7dfa0b5c8584db83ab26/mirror/required-images.txt#L64-L83), we can simply run the `helm template` command to generate the template content and replace all the `gcr.io/istio-release` to `937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/gcr.io/istio-release` and force all the image pulling goes to our mirror.
+
 ```bash
 # checkout the Istio repo
 $ git clone https://github.com/istio/istio.git
-# create required CRD
-$ kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml
-# create service account
-$ kubectl apply -f install/kubernetes/helm/helm-service-account.yaml
 
 # isntall from 'install/kubernetes/helm/istio-init'
 $ helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system  | \
@@ -50,6 +50,7 @@ prometheus-5b48f5d49-fl5s5                              1/1     Running     0   
 
 ```bash
 $ helm template install/kubernetes/helm/istio --name istio --namespace istio-system | kubectl delete -f -
+$ helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system | kubectl delete -f -
 $ kubectl delete namespace istio-system
 $ kubectl delete -f install/kubernetes/helm/istio-init/files
 ```
