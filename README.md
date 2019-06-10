@@ -86,8 +86,16 @@ $ sudo mv ./kubectl /usr/local/bin/
 # 再次确认kops and kubectl是当前稳定版本
 #
 $ kops version
-$ kubectl version
+$ kubectl version	
 ```
+
+
+
+## 请注意
+
+如果你之前安装过kops客户端或者曾经升级了kops，请再次使用`kops version`确认kops客户端是否为最新稳定版本，版本不一致可能会造成功能上的问题。
+
+
 
 
 3. 编辑 `Makefile`文件. 您需要设置如下变量
