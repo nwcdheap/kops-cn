@@ -17,13 +17,13 @@ AWS_DEFAULT_REGION ?= $(TARGET_REGION)
 AWS_REGION ?= $(AWS_DEFAULT_REGION)
 ifeq ($(TARGET_REGION) ,cn-north-1)
 	CLUSTER_NAME ?= cluster.bjs.k8s.local
-	AMI ?= ami-09b54790f727ac576
+	AMI ?= ami-0032227ab96e75a9f
 	ZONES ?= cn-north-1a,cn-north-1b
 endif
 
 ifeq ($(TARGET_REGION) ,cn-northwest-1)
 	CLUSTER_NAME ?= cluster.zhy.k8s.local
-	AMI ?= ami-0cb93c9d844de0c18
+	AMI ?= ami-006bc343e8c9c9b22
 	ZONES ?= cn-northwest-1a,cn-northwest-1b,cn-northwest-1c
 endif
 
