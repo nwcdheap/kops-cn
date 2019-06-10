@@ -23,6 +23,19 @@
 - [x] 无需任何VPN代理或翻墙设置
 - [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**([buildspec.yml](https://github.com/nwcdlabs/kops-cn/blob/master/buildspec.yml))  去拉取镜像并存放到AWS `cn-north-1` 的ECR中。查看： [镜像列表](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
 - [x] 一个`make create-cluster`命令即可创建集群
+
+
+
+# 当前稳定版本
+
+`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。此`README`文件最后一次更新时间所对应的稳定版本是：
+
+|        | Kops最新版本 | K8s建议版本 |
+| ------ | ------------ | ----------- |
+| 版本号 | 1.12.1       | 1.12.7      |
+
+
+
 # 步骤
 
 1. 下载项目到本地
@@ -36,15 +49,44 @@ $ cd kops-cn-master
 
 您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
-```
-//kops for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.12.1/linux/amd64/kops
-//kops for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/1.12.1/darwin/amd64/kops
-//kubectl for linux
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.12.7/bin/linux/amd64/kubectl
-//kubectl for mac os
-https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/v1.12.7/bin/darwin/amd64/kubectl
+```bash
+kops_version='1.12.1'
+k8s_version='v1.12.7'
+#
+# for Linux Environment
+#
+# download kops for linux
+$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/$kops_version/linux/amd64/kops -o kops
+$ chmod +x $_
+
+# download kubectl for linux
+$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/$k8s_version/bin/linux/amd64/kubectl -o kubectl
+$ chmod +x $_
+
+#
+# for Mac OS X Environment
+#
+
+# download kops for mac os x
+$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/$kops_version/darwin/amd64/kops -o kops
+$ chmod +x $_
+
+# download kubectl for mac os x
+$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/$k8s_version/bin/darwin/amd64/kubectl -o kubectl
+$ chmod +x $_
+
+
+#
+# 将kops与kubectl放到$PATH
+#
+$ sudo mv ./kops /usr/local/bin/
+$ sudo mv ./kubectl /usr/local/bin/
+
+#
+# 再次确认kops and kubectl是当前稳定版本
+#
+$ kops version
+$ kubectl version
 ```
 
 
