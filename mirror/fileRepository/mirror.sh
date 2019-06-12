@@ -33,30 +33,25 @@ mirror_kubeupv2(){
         if [[ ! -d $TMPDIR/$platform/amd64 ]]; then
         mkdir -p $TMPDIR/$platform/amd64
         fi
-        if [[ ! -d $TMPDIR/images ]]; then
-        mkdir -p $TMPDIR/images
-        fi
+        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/kops -O $TMPDIR/$platform/amd64/kops
+        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/kops.sha1 -O $TMPDIR/$platform/amd64/kops.sha1
     done
 
 
-    for i in nodeup utils.tar.gz kops
+    for file in nodeup utils.tar.gz
     do
-    for platform in linux darwin
-    do
-        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/$i -O $TMPDIR/$platform/amd64/$i
-        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/$i.sha1 -O $TMPDIR/$platform/amd64/$i.sha1
-    done
+        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/linux/amd64/$file -O $TMPDIR/linux/amd64/$file
+        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/linux/amd64/$file.sha1 -O $TMPDIR/linux/amd64/$file.sha1
     done
 
-    for platform in linux darwin
-    do
-    aws --profile bjs s3 sync $TMPDIR/$platform/amd64/ s3://kubeupv2/kops/$KOPS_VERSION/$platform/amd64/ --acl public-read
-    done
+    if [[ ! -d $TMPDIR/images ]]; then
+    mkdir -p $TMPDIR/images
+    fi
 
     p=protokube.tar.gz
     wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/images/$p -O $TMPDIR/images/$p
     wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/images/$p.sha1 -O $TMPDIR/images/$p.sha1
-    aws --profile bjs s3 sync $TMPDIR/images/ s3://kubeupv2/kops/$KOPS_VERSION/images/ --acl public-read
+    aws --profile bjs s3 sync $TMPDIR/ s3://kubeupv2/kops/$KOPS_VERSION/ --acl public-read
 }
 
 

@@ -17,7 +17,7 @@ This document will walk you through the [AWS ALB Ingress Controller](https://git
 Download the `iam-policy.json` from `kubernetes-sigs/aws-alb-ingress-controller` GitHub
 
 ```bash
-curl -sS https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/iam-policy.json -o iam-policy.json
+curl -sS https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/iam-policy.json -o iam-policy.json
 ```
 
 
@@ -49,7 +49,7 @@ If you check IAM console, you will  see an extra role policy `alb-ingress-extra`
 Deploy RBAC Roles and RoleBindings needed by the AWS ALB Ingress controller:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/rbac-role.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/rbac-role.yaml
 ```
 
 
@@ -57,7 +57,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingre
 Download the AWS ALB Ingress controller YAML into a local file:
 
 ```
-curl -sS "https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/alb-ingress-controller.yaml" > alb-ingress-controller.yaml
+curl -sS "https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/alb-ingress-controller.yaml" > alb-ingress-controller.yaml
 ```
 
 Edit the **–cluster-name** flag to be the real name of our Kubernetes (or) Amazon EKS cluster. If you deploy cluster in Ningxia, the cluster name by default would be **cluster.zhy.k8s.local**.
@@ -66,13 +66,9 @@ Edit the **–cluster-name** flag to be the real name of our Kubernetes (or) Ama
 
 
 
-**IMPORTANT** - update the image URI to `937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/quay.io-coreos-alb-ingress-controller:v1.0.0`
+**IMPORTANT** - update the image URI to `937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/894847497797.dkr.ecr.us-west-2.amazonaws.com-aws-alb-ingress-controller:v1.0.1`
 
-(you need to update the image URI otherwise you may fail to pull the image)
-
-![](../images/aws-alb-ingress-03.png)
-
-
+(you need to update the image URI or you may fail to pull the required image)
 
 OK. Let's deploy the alb-ingress-controller
 
@@ -91,10 +87,21 @@ You should be able to see the following output
 ```
 -------------------------------------------------------------------------------
 AWS ALB Ingress controller
-  Release:    v1.0.0
-  Build:      git-6ee1276
-  Repository: https://github.com/kubernetes-sigs/aws-alb-ingress-controller
+  Release:    v1.0.1
+  Build:      git-ebac62dd
+  Repository: https://github.com/kubernetes-sigs/aws-alb-ingress-controller.git
 -------------------------------------------------------------------------------
+
+W0113 15:29:46.996765       1 client_config.go:552] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0113 15:29:47.037786       1 :0] kubebuilder/controller "level"=0 "msg"="Starting EventSource"  "Controller"="alb-ingress-controller" "Source"={"Type":{"metadata":{"creationTimestamp":null},"spec":{},"status":{"loadBalancer":{}}}}
+I0113 15:29:47.037933       1 :0] kubebuilder/controller "level"=0 "msg"="Starting EventSource"  "Controller"="alb-ingress-controller" "Source"={"Type":{"metadata":{"creationTimestamp":null},"spec":{},"status":{"loadBalancer":{}}}}
+I0113 15:29:47.038054       1 :0] kubebuilder/controller "level"=0 "msg"="Starting EventSource"  "Controller"="alb-ingress-controller" "Source"={"Type":{"metadata":{"creationTimestamp":null}}}
+I0113 15:29:47.038275       1 :0] kubebuilder/controller "level"=0 "msg"="Starting EventSource"  "Controller"="alb-ingress-controller" "Source"={"Type":{"metadata":{"creationTimestamp":null},"spec":{},"status":{"daemonEndpoints":{"kubeletEndpoint":{"Port":0}},"nodeInfo":{"machineID":"","systemUUID":"","bootID":"","kernelVersion":"","osImage":"","containerRuntimeVersion":"","kubeletVersion":"","kubeProxyVersion":"","operatingSystem":"","architecture":""}}}}
+I0113 15:29:47.038441       1 leaderelection.go:185] attempting to acquire leader lease  kube-system/ingress-controller-leader-alb...
+I0113 15:29:47.053838       1 leaderelection.go:194] successfully acquired lease kube-system/ingress-controller-leader-alb
+I0113 15:29:47.154268       1 :0] kubebuilder/controller "level"=0 "msg"="Starting Controller"  "Controller"="alb-ingress-controller"
+I0113 15:29:47.254530       1 :0] kubebuilder/controller "level"=0 "msg"="Starting workers"  "Controller"="alb-ingress-controller" "WorkerCount"=1
+
 ```
 
 (please note the Release version and Build tag may change as it publishes newer version)
@@ -104,9 +111,9 @@ AWS ALB Ingress controller
 ### Deploy Sample Application
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/2048/2048-namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/2048/2048-deployment.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/2048/2048-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/2048/2048-namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/2048/2048-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/2048/2048-service.yaml
 ```
 
 
@@ -114,7 +121,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingre
 Download the ingress resource YAML
 
 ```
-curl -sS https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.0/docs/examples/2048/2048-ingress.yaml -o 2048-ingress.yaml
+curl -sS https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.0.1/docs/examples/2048/2048-ingress.yaml -o 2048-ingress.yaml
 ```
 
 Edit the `2048-ingress.yaml` file, add `alb.ingress.kubernetes.io/target-type: ip` in the annotations. In this case,  we will leverage the `ip mode` target-type to balance traffic directly across the Pods.
@@ -137,21 +144,28 @@ Let's describe the ingress resource and get the `Address` attribute.
 
 ```
 $ kubectl -n 2048-game describe ing/2048-ingress
+
 Name:             2048-ingress
 Namespace:        2048-game
-Address:          63e8a1ac-2048game-2048ingr-6fa0-1771643810.cn-northwest-1.elb.amazonaws.com.cn
+Address:          63e8a1ac-2048game-2048ingr-6fa0-819625613.cn-northwest-1.elb.amazonaws.com.cn
 Default backend:  default-http-backend:80 (<none>)
 Rules:
   Host  Path  Backends
   ----  ----  --------
-  *
+  *     
         /*   service-2048:80 (<none>)
 Annotations:
-  alb.ingress.kubernetes.io/scheme:                  internet-facing
-  kubectl.kubernetes.io/last-applied-configuration:  {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{"alb.ingress.kubernetes.io/scheme":"internet-facing","kubernetes.io/ingress.class":"alb"},"labels":{"app":"2048-ingress"},"name":"2048-ingress","namespace":"2048-game"},"spec":{"rules":[{"http":{"paths":[{"backend":{"serviceName":"service-2048","servicePort":80},"path":"/*"}]}}]}}
+  alb.ingress.kubernetes.io/target-type:             ip
+  kubectl.kubernetes.io/last-applied-configuration:  {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{"alb.ingress.kubernetes.io/scheme":"internet-facing","alb.ingress.kubernetes.io/target-type":"ip","kubernetes.io/ingress.class":"alb"},"labels":{"app":"2048-ingress"},"name":"2048-ingress","namespace":"2048-game"},"spec":{"rules":[{"http":{"paths":[{"backend":{"serviceName":"service-2048","servicePort":80},"path":"/*"}]}}]}}
 
-  kubernetes.io/ingress.class:  alb
-Events:                         <none>
+  kubernetes.io/ingress.class:       alb
+  alb.ingress.kubernetes.io/scheme:  internet-facing
+Events:
+  Type    Reason  Age   From                    Message
+  ----    ------  ----  ----                    -------
+  Normal  CREATE  7m    alb-ingress-controller  LoadBalancer 63e8a1ac-2048game-2048ingr-6fa0 created, ARN: arn:aws-cn:elasticloadbalancing:cn-northwest-1:937788672844:loadbalancer/app/63e8a1ac-2048game-2048ingr-6fa0/9ccfa93325ae76a5
+  Normal  CREATE  7m    alb-ingress-controller  rule 1 created with conditions [{    Field: "path-pattern",    Values: ["/*"]  }]
+pahud:~/environment/kops-cn (master) $ 
 ```
 
 

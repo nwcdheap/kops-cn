@@ -1,4 +1,5 @@
 #!/bin/bash
+# set -x
 
 ECR_REGION='cn-north-1'
 ECR_DN="937788672844.dkr.ecr.${ECR_REGION}.amazonaws.com.cn"
@@ -21,6 +22,27 @@ function create_ecr_repo() {
 function attach_policy() {
   echo "attaching public-read policy on ECR repo: $1"
   aws --profile bjs --region $ECR_REGION ecr  set-repository-policy --policy-text file://policy.text --repository-name "$1"
+}
+
+function is_remote_image_exists(){
+  # is_remote_image_exists repositoryName:Tag Digests
+  fullrepo=${1#*/}
+  repo=${fullrepo%%:*}
+  tag=${fullrepo##*:}
+  res=$(aws --profile bjs --region $ECR_REGION ecr describe-images --repository-name "$repo" \
+--query "imageDetails[?(@.imageDigest=='$2')].contains(@.imageTags, '$tag') | [0]")
+
+  if [ "$res" == "true" ]; then 
+    return 0 
+  else
+    return 1
+  fi
+}
+
+function get_local_image_digests(){
+  x=$(docker image inspect --format='{{index .RepoDigests 0}}' "$1")
+  echo ${x##*@}
+  # docker images --digests --no-trunc -q "$1"
 }
 
 function need_trim() {
@@ -51,7 +73,7 @@ function in_array() {
 function ecr_login() {
   aws --profile=bjs ecr --region cn-northwest-1 get-login --no-include-email | sh
   aws --profile=bjs ecr --region cn-north-1 get-login --no-include-email | sh
-  aws ecr get-login --region us-west-2 --registry-ids 602401143452 --no-include-email | sh
+  aws ecr get-login --region us-west-2 --registry-ids 602401143452 894847497797 --no-include-email | sh
 }
 
 function pull_and_push(){
@@ -70,17 +92,27 @@ function pull_and_push(){
   docker pull $origimg
   echo "tagging $origimg to $target_img"
   docker tag $origimg $target_img
-  echo "pushing $target_img"
-  docker push $target_img
-  echo "clean up, deleting $origimg and $target_img"
-  docker rmi $origimg $target_img
+  echo "getting the digests on $target_img..."
+  digests=$(get_local_image_digests $target_img)
+  echo "$digests"
+  echo "checking if remote image exists"
+
+  if is_remote_image_exists $target_img $digests;then 
+    echo "[SKIP] image already exists, skip"
+  else
+    echo "[PUSH] remote image not exists or digests not match, pushing $target_img"
+    docker push $target_img
+  fi
+
+  #echo "clean up, deleting $origimg and $target_img"
+  #docker rmi $origimg $target_img
 }
 
 
 # list all existing repos
 all_ecr_repos=$(aws --profile=bjs --region $ECR_REGION ecr describe-repositories --query 'repositories[*].repositoryName' --output text)
 echo "$all_ecr_repos"
-repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1)
+repos=$(grep -v ^# $IMAGES_FILE_LIST | cut -d: -f1 | sort -u)
 for r in ${repos[@]}
 do
   if need_trim $r; then
