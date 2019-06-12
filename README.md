@@ -28,7 +28,7 @@
 
 # 当前稳定版本
 
-`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。此`README`文件最后一次更新时间所对应的稳定版本是：
+`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。此`README`文件最后一次更新时间所对应的稳定版本是：
 
 |        | Kops最新版本 | K8s建议版本 |
 | ------ | ------------ | ----------- |
