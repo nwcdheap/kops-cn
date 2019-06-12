@@ -3,13 +3,12 @@ TARGET_REGION ?= cn-northwest-1
 AWS_PROFILE ?= default
 KOPS_STATE_STORE ?= s3://pahud-kops-state-store-zhy
 VPCID ?= vpc-bb3e99d2
-#VPCID ?= vpc-0654ec2e460225d14
 MASTER_COUNT ?= 3
 MASTER_SIZE ?= m4.large
 NODE_SIZE ?= c5.large
 NODE_COUNT ?= 2
 SSH_PUBLIC_KEY ?= ~/.ssh/id_rsa.pub
-KUBERNETES_VERSION ?= v1.12.7
+KUBERNETES_VERSION ?= v1.12.8
 KOPS_VERSION ?= 1.12.1
 
 # do not modify following values
@@ -53,10 +52,7 @@ create-cluster:
      --kubernetes-version=$(KUBERNETES_VERSION_URI) \
      --networking=amazon-vpc-routed-eni \
      --ssh-public-key=$(SSH_PUBLIC_KEY)
-     
-     
- #--subnets=subnet-0694ca9e79cc3cfb6,subnet-03a0e3db1d77db089,subnet-050da82a687ff4968 \
-     
+          
 .PHONY: edit-ig-nodes
 edit-ig-nodes:
 	@KOPS_STATE_STORE=$(KOPS_STATE_STORE) \

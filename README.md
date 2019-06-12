@@ -32,7 +32,7 @@
 
 |        | Kops最新版本 | K8s建议版本 |
 | ------ | ------------ | ----------- |
-| 版本号 | 1.12.1       | 1.12.7      |
+| 版本号 | 1.12.1       | 1.12.8      |
 
 
 
@@ -51,7 +51,7 @@ $ cd kops-cn-master
 
 ```bash
 kops_version='1.12.1'
-k8s_version='v1.12.7'
+k8s_version='v1.12.8'
 #
 # for Linux Environment
 #
