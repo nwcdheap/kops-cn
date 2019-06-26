@@ -32,7 +32,7 @@
 
 |        | Kops最新版本 | K8s建议版本 |
 | ------ | ------------ | ----------- |
-| 版本号 | 1.12.1       | 1.12.8      |
+| 版本号 | 1.12.2       | 1.12.8      |
 
 
 
@@ -50,7 +50,7 @@ $ cd kops-cn-master
 您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
 ```bash
-kops_version='1.12.1'
+kops_version='1.12.2'
 k8s_version='v1.12.8'
 #
 # for Linux Environment
