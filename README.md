@@ -175,11 +175,17 @@ make delete-cluster
 
 # FAQ
 
+## 可以使用其他AMI吗？例如CentoOS, Amazon Linux 2等？
+目前缺省配置是CoreOS AMI， 然而存在部分issue描述CoreOS AMI可能存在不稳定问题，而Amazon Linux 2 AMI也有一些问题回报，或者你也可以使用CentOS镜像打造你的kops系统，请参考[这个issue](https://github.com/nwcdlabs/kops-cn/issues/91)里面的完整讨论。
+
 ## 集群验证失败?
 查看 issue [#5](https://github.com/nwcdlabs/kops-cn/issues/5)
 
 ## 如何SSH上master节点和worker节点 ?
 查看 issue [#6](https://github.com/nwcdlabs/kops-cn/issues/6)
+
+## 我可以把master nodes运行在private subnet吗？如何配置？
+参考这个说明:[#94](https://github.com/nwcdlabs/kops-cn/issues/94#issuecomment-512844772)
 
 
 ## 我需要的docker镜像在ECR中不存在.
