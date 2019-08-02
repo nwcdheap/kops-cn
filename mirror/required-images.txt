@@ -51,6 +51,7 @@ k8s.gcr.io/etcd:3.2.18
 k8s.gcr.io/etcd:3.2.24
 kopeio/etcd-manager:3.0.20190516
 kopeio/etcd-manager:1.0.20181001
+kopeio/etcd-manager:3.0.20190801
 
 
 #Kubernates dashboard
