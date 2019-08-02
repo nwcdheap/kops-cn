@@ -26,13 +26,13 @@
 
 
 
-# 当前稳定版本
+# 当前版本
 
 `kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。此`README`文件最后一次更新时间所对应的稳定版本是：
 
-|        | Kops最新版本 | K8s建议版本 |
-| ------ | ------------ | ----------- |
-| 版本号 | 1.12.2       | 1.12.8      |
+|        | Kops最新版本                                                 | K8s建议版本 | AMI                                                          |
+| ------ | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
+| 版本号 | 1.12.3([#99](https://github.com/nwcdlabs/kops-cn/issues/99)) | 1.12.9      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
 
 
 
@@ -50,8 +50,8 @@ $ cd kops-cn-master
 您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
 ```bash
-kops_version='1.12.2'
-k8s_version='v1.12.8'
+kops_version='1.12.3'
+k8s_version='v1.12.9'
 #
 # for Linux Environment
 #
@@ -175,14 +175,18 @@ make delete-cluster
 
 # FAQ
 
-## 可以使用其他AMI吗？例如CentoOS, Amazon Linux 2等？
-目前缺省配置是CoreOS AMI， 然而存在部分issue描述CoreOS AMI可能存在不稳定问题，而Amazon Linux 2 AMI也有一些问题回报，或者你也可以使用CentOS镜像打造你的kops系统，请参考[这个issue](https://github.com/nwcdlabs/kops-cn/issues/91)里面的完整讨论。
+## 目前使用什麼AMI，可以使用其他AMI吗？例如CentoOS, Amazon Linux 2等？
+目前缺省AMI使用Debian Linux AMI，也是Kops上游的标准AMI([说明](https://github.com/kubernetes/kops/blob/master/docs/images.md#images)), 然而Kops官方并没有直接发布AMI到cn-west-1 and cn-northwest-1(请大家帮顶一下[这个issue](https://github.com/kubernetes/kops/issues/7294)), 在官方AMI直接发布到这两个China regions之前，我们手动的把AMI透过[这里说明](https://stackoverflow.com/questions/36461042/how-to-copy-an-ami-from-ireland-region-to-china-region-in-aws)的方式取回北京与宁夏Region，需要特别提醒这AMI并不是官方直接发布，建议大家也可以自行透过上面链接的说明，透过[这里](https://github.com/kubernetes/kops/blob/master/channels/stable)查找官方现在对应最新的Debian AMI自行取回国内。
+
+除了Debian Linux之外，其他官方支持的AMI理论上也都支持，但也可能存在一些已知的问题，请参考[#91](https://github.com/nwcdlabs/kops-cn/issues/91) and [#96](https://github.com/nwcdlabs/kops-cn/issues/96)。
+
+
 
 ## 集群验证失败?
 查看 issue [#5](https://github.com/nwcdlabs/kops-cn/issues/5)
 
 ## 如何SSH上master节点和worker节点 ?
-查看 issue [#6](https://github.com/nwcdlabs/kops-cn/issues/6)
+查看 issue [#6](https://github.com/nwcdlabs/kops-cn/issues/6), 需要注意Debian AMI ssh方式为` ssh admin@IP`
 
 ## 我可以把master nodes运行在private subnet吗？如何配置？
 参考这个说明:[#94](https://github.com/nwcdlabs/kops-cn/issues/94#issuecomment-512844772)
