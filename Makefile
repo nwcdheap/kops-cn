@@ -8,21 +8,25 @@ MASTER_SIZE ?= m4.large
 NODE_SIZE ?= c5.large
 NODE_COUNT ?= 2
 SSH_PUBLIC_KEY ?= ~/.ssh/id_rsa.pub
-KUBERNETES_VERSION ?= v1.12.8
-KOPS_VERSION ?= 1.12.1
+KUBERNETES_VERSION ?= v1.12.9
+KOPS_VERSION ?= 1.12.3
 
 # do not modify following values
 AWS_DEFAULT_REGION ?= $(TARGET_REGION)
 AWS_REGION ?= $(AWS_DEFAULT_REGION)
 ifeq ($(TARGET_REGION) ,cn-north-1)
 	CLUSTER_NAME ?= cluster.bjs.k8s.local
-	AMI ?= ami-0032227ab96e75a9f
+	# copy from kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13
+	# see https://github.com/nwcdlabs/kops-cn/issues/96
+	AMI ?= ami-02dd4d384eb0e0b3a
 	ZONES ?= cn-north-1a,cn-north-1b
 endif
 
 ifeq ($(TARGET_REGION) ,cn-northwest-1)
 	CLUSTER_NAME ?= cluster.zhy.k8s.local
-	AMI ?= ami-006bc343e8c9c9b22
+	# copy from kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13
+	# see https://github.com/nwcdlabs/kops-cn/issues/96
+	AMI ?= ami-068b32c3754324d44
 	ZONES ?= cn-northwest-1a,cn-northwest-1b,cn-northwest-1c
 endif
 
