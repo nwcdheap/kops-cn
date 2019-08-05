@@ -28,12 +28,16 @@
 
 # 当前版本
 
-`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。此`README`文件最后一次更新时间所对应的稳定版本是：
+`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。
 
-|        | Kops最新版本                                                 | K8s搭配版本 | AMI                                                          |
+目前提供`1.12`与`1.13`两个主要版本提供选择，default是`1.12`, 但也可以指定使用`1.13`.
+
+此`README`文件最后一次更新时间所对应的稳定版本是：
+
+|    主版本    | Kops最新版本                                                 | K8s搭配版本 | AMI                                                          |
 | ------ | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| 版本号 | 1.12.3([#99](https://github.com/nwcdlabs/kops-cn/issues/99)) | 1.12.9      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
-| 版本号 | 1.13.0([#101](https://github.com/nwcdlabs/kops-cn/issues/101)) | 1.13.5      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
+| 1.12 | 1.12.3([#99](https://github.com/nwcdlabs/kops-cn/issues/99)) | 1.12.9      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
+| 1.13 | 1.13.0([#101](https://github.com/nwcdlabs/kops-cn/issues/101)) | 1.13.5      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
 
 
 
