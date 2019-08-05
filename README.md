@@ -28,7 +28,7 @@
 
 # 当前版本
 
-`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://raw.githubusercontent.com/kubernetes/kops/master/channels/stable)查看。
+`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://github.com/kubernetes/kops/blob/master/channels/stable)查看。
 
 目前提供`1.12`与`1.13`两个主要版本提供选择，default是`1.12`, 但也可以指定使用`1.13`.
 
