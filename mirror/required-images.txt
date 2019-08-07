@@ -1,5 +1,6 @@
 # required for Kops cluster creation
 kope/dns-controller:1.12.0
+kope/dns-controller:1.13.0
 k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.13
 k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.13
 k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.13
@@ -46,7 +47,7 @@ gcr.io/google_containers/defaultbackend:1.4
 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.20.0
 
 
-# ETCD v3 
+# ETCD v3
 k8s.gcr.io/etcd:3.2.18
 k8s.gcr.io/etcd:3.2.24
 kopeio/etcd-manager:3.0.20190516
@@ -89,3 +90,6 @@ gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily
 
 # Required for TiDB
 quay.io/external_storage/local-volume-provisioner:v2.2.0
+
+# Required for aws-iam-authenticator
+602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon/aws-iam-authenticator:v0.4.0
