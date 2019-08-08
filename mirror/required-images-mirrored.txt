@@ -65,31 +65,6 @@ quay.io/external_storage/local-volume-provisioner:v2.2.0
 # Required for aws-iam-authenticator
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon/aws-iam-authenticator:v0.4.0
 
-########################################################
-# low priority images below - keep them in the button
-########################################################
-
-
-# Istio with master branch
-gcr.io/istio-release/proxy_init:master-latest-daily
-gcr.io/istio-release/citadel:master-latest-daily
-gcr.io/istio-release/proxyv2:master-latest-daily
-gcr.io/istio-release/galley:master-latest-daily
-gcr.io/istio-release/pilot:master-latest-daily
-gcr.io/istio-release/mixer:master-latest-daily
-gcr.io/istio-release/kubectl:master-latest-daily
-gcr.io/istio-release/sidecar_injector:master-latest-daily
-
-
-# Istio with release-1.0 branch
-gcr.io/istio-release/proxy_init:release-1.0-latest-daily
-gcr.io/istio-release/citadel:release-1.0-latest-daily
-gcr.io/istio-release/proxyv2:release-1.0-latest-daily
-gcr.io/istio-release/galley:release-1.0-latest-daily
-gcr.io/istio-release/pilot:release-1.0-latest-daily
-gcr.io/istio-release/mixer:release-1.0-latest-daily
-gcr.io/istio-release/kubectl:release-1.0-latest-daily
-gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily
 
 # deprecating old images
 kopeio/etcd-manager:1.0.20181001

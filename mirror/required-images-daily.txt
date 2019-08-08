@@ -1,0 +1,23 @@
+#
+# The following images will be mirrored in a daily basis
+#
+# Istio with master branch
+gcr.io/istio-release/proxy_init:master-latest-daily
+gcr.io/istio-release/citadel:master-latest-daily
+gcr.io/istio-release/proxyv2:master-latest-daily
+gcr.io/istio-release/galley:master-latest-daily
+gcr.io/istio-release/pilot:master-latest-daily
+gcr.io/istio-release/mixer:master-latest-daily
+gcr.io/istio-release/kubectl:master-latest-daily
+gcr.io/istio-release/sidecar_injector:master-latest-daily
+
+
+# Istio with release-1.0 branch
+gcr.io/istio-release/proxy_init:release-1.0-latest-daily
+gcr.io/istio-release/citadel:release-1.0-latest-daily
+gcr.io/istio-release/proxyv2:release-1.0-latest-daily
+gcr.io/istio-release/galley:release-1.0-latest-daily
+gcr.io/istio-release/pilot:release-1.0-latest-daily
+gcr.io/istio-release/mixer:release-1.0-latest-daily
+gcr.io/istio-release/kubectl:release-1.0-latest-daily
+gcr.io/istio-release/sidecar_injector:release-1.0-latest-daily

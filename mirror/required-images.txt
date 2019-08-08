@@ -1,8 +1,8 @@
 #
-# 1. check required-images-mirrored.txt for mirrored image list
+# 1. check required-images-mirrored.txt for mirrored image list, 
+#    see https://github.com/nwcdlabs/kops-cn/issues/105 for more details
 # 
 # 2. please add additional required images below
-#
 #
 # Example
 #

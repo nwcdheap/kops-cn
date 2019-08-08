@@ -207,11 +207,26 @@ kops version
 
 
 ## 我需要的docker镜像在ECR中不存在.
-aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt), 如您在集群创建过程中需要其他镜像, 请您编辑 [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) ，这将会在您的GitHub账户中 fork 一个新的分支，之后您可以提交PR（pull request）。 Merge您的PR会触发`CodeBuild` 去拉取 `required-images.txt` 中定义的镜像回ECR库。 数分钟后，您可以看到图标从`in progress`变为`passing`
+aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[required-images-mirrored.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images-mirrored.txt), (參考[#105](https://github.com/nwcdlabs/kops-cn/issues/105))如您在集群创建过程中需要其他镜像, 请您编辑 [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) ，这将会在您的GitHub账户中 fork 一个新的分支，之后您可以提交PR（pull request）。 Merge您的PR会触发`CodeBuild` 去拉取 `required-images.txt` 中定义的镜像回ECR库。 数分钟后，您可以看到图标从`in progress`变为`passing`
 
-当前状态：![](https://codebuild.ap-northeast-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiQ3E1Qzh3cXdYeC85RndJNzJsSENEaGZ6TXNOUnFuUzBQc2N2RVU3UG4xYnlLU3VKYjNSVlBMNkEzL3E0TEExUi9GWWJIQUtNWTBKWTVWOVgzMTlxdU1FPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVRNzM4Q0dTV3BvUkx6MXUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)。
+当前状态：![](https://codebuild.ap-northeast-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiQ3E1Qzh3cXdYeC85RndJNzJsSENEaGZ6TXNOUnFuUzBQc2N2RVU3UG4xYnlLU3VKYjNSVlBMNkEzL3E0TEExUi9GWWJIQUtNWTBKWTVWOVgzMTlxdU1FPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVRNzM4Q0dTV3BvUkx6MXUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
+
+
+## required-images相关文档用途
+
+| filename                                                     | description                                                |
+| ------------------------------------------------------------ | ---------------------------------------------------------- |
+| [required-images.txt](./mirror/required-images.txt)          | 新的需求镜像可以透过PR来共同编辑记录在这里，触发CD来mirror |
+| [required-imags-mirrored.txt](./mirror/required-imags-mirrored.txt) | 已经mirror完成的镜像列表                                   |
+| [required-images-daily.txt](./mirror/required-images-daily.txt) | 部分image需要每日自动mirror更新一次的清单                  |
+
+
+
+
 
 ## 如何得知`required-images.txt`在ECR所对应的完整路径？
+
 参考[这里](https://github.com/nwcdlabs/kops-cn/issues/54) 
 
 ### 查看所有FAQs [这里](https://github.com/nwcdlabs/kops-cn/issues?utf8=%E2%9C%93&q=label%3AFAQ)
