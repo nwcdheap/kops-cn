@@ -55,7 +55,7 @@ gcr.io/kubernetes-helm/tiller:v2.13.1
 gcr.io/kubernetes-helm/tiller:v2.14.0
 
 # Required for eksworkshop.com
-k8s.gcr.io/hpa-example
+k8s.gcr.io/hpa-example:latest
 gcr.io/google_containers/metrics-server-amd64:v0.3.1
 k8s.gcr.io/cluster-autoscaler:v1.2.2
 
