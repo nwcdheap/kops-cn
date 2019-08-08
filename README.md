@@ -1,4 +1,4 @@
-![](https://codebuild.ap-northeast-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiQ3E1Qzh3cXdYeC85RndJNzJsSENEaGZ6TXNOUnFuUzBQc2N2RVU3UG4xYnlLU3VKYjNSVlBMNkEzL3E0TEExUi9GWWJIQUtNWTBKWTVWOVgzMTlxdU1FPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVRNzM4Q0dTV3BvUkx6MXUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 [English README](./README_en.md)
 
@@ -209,7 +209,7 @@ kops version
 ## 我需要的docker镜像在ECR中不存在.
 aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[required-images-mirrored.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images-mirrored.txt), (參考[#105](https://github.com/nwcdlabs/kops-cn/issues/105))如您在集群创建过程中需要其他镜像, 请您编辑 [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) ，这将会在您的GitHub账户中 fork 一个新的分支，之后您可以提交PR（pull request）。 Merge您的PR会触发`CodeBuild` 去拉取 `required-images.txt` 中定义的镜像回ECR库。 数分钟后，您可以看到图标从`in progress`变为`passing`
 
-当前状态：![](https://codebuild.ap-northeast-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiQ3E1Qzh3cXdYeC85RndJNzJsSENEaGZ6TXNOUnFuUzBQc2N2RVU3UG4xYnlLU3VKYjNSVlBMNkEzL3E0TEExUi9GWWJIQUtNWTBKWTVWOVgzMTlxdU1FPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVRNzM4Q0dTV3BvUkx6MXUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+当前状态：![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 
 
