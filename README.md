@@ -218,7 +218,7 @@ aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[re
 | filename                                                     | description                                                |
 | ------------------------------------------------------------ | ---------------------------------------------------------- |
 | [required-images.txt](./mirror/required-images.txt)          | 新的需求镜像可以透过PR来共同编辑记录在这里，触发CD来mirror |
-| [required-imags-mirrored.txt](./mirror/required-imags-mirrored.txt) | 已经mirror完成的镜像列表                                   |
+| [required-imags-mirrored.txt](./mirror/required-images-mirrored.txt) | 已经mirror完成的镜像列表                                   |
 | [required-images-daily.txt](./mirror/required-images-daily.txt) | 部分image需要每日自动mirror更新一次的清单                  |
 
 
