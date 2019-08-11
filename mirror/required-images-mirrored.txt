@@ -57,7 +57,7 @@ gcr.io/kubernetes-helm/tiller:v2.14.0
 # Required for eksworkshop.com
 k8s.gcr.io/hpa-example
 gcr.io/google_containers/metrics-server-amd64:v0.3.1
-k8s.gcr.io/cluster-autoscaler:v1.2.2
+k8s.gcr.io/cluster-autoscaler:v1.12.3
 
 # Required for TiDB
 quay.io/external_storage/local-volume-provisioner:v2.2.0
