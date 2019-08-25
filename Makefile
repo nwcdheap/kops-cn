@@ -8,8 +8,8 @@ MASTER_SIZE ?= m4.large
 NODE_SIZE ?= c5.large
 NODE_COUNT ?= 2
 SSH_PUBLIC_KEY ?= ~/.ssh/id_rsa.pub
-KUBERNETES_VERSION ?= v1.12.9
-KOPS_VERSION ?= 1.12.3
+KUBERNETES_VERSION ?= v1.13.10
+KOPS_VERSION ?= 1.13.0
 
 # do not modify following values
 AWS_DEFAULT_REGION ?= $(TARGET_REGION)
