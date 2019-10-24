@@ -37,7 +37,7 @@
 |    主版本    | Kops最新版本                                                 | K8s搭配版本 | AMI                                                          |
 | ------ | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | 1.13 | 1.13.0([#101](https://github.com/nwcdlabs/kops-cn/issues/101)) | 1.13.10      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
-| 1.14 | 1.14.0([#114](https://github.com/nwcdlabs/kops-cn/issues/114) | 1.14.6      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
+| 1.14 | 1.14.0([#114](https://github.com/nwcdlabs/kops-cn/issues/114)) | 1.14.6      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
 
 
 
