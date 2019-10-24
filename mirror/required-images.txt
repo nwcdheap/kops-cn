@@ -11,8 +11,9 @@
 #k8s.gcr.io/coredns:1.2.6
 #gcr.io/google_containers/etcd:2.2.1
 
-kopeio/etcd-manager:3.0.20190930
 kope/dns-controller:1.14.0
+kopeio/etcd-manager:3.0.20190930
+
 
 
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:v1.5.3
