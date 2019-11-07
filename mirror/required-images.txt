@@ -25,3 +25,9 @@ quay.io/calico/cni:v3.7.4
 
 # Required for k8s cluster backup/restore
 gcr.io/heptio-images/velero:v1.1.0
+
+# kubernetes cluster v1.14.6
+gcr.io/google_containers/kube-controller-manager:v1.14.6
+gcr.io/google_containers/kube-scheduler:v1.14.6
+gcr.io/google_containers/kube-proxy:v1.14.6
+gcr.io/google_containers/kube-apiserver:v1.14.6
