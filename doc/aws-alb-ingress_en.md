@@ -25,7 +25,7 @@ curl -sS https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-contr
 check the node role name with `awscli`.  Typically if you create the cluster in `NingXia` region, the role name should be `nodes.cluster.zhy.k8s.local` 
 
 ```bash
-$ aws --profile bjs iam list-roles | grep "nodes.cluster"
+$ aws iam list-roles | grep "nodes.cluster"
             "RoleName": "nodes.cluster.zhy.k8s.local",
             "Arn": "arn:aws-cn:iam::937788672844:role/nodes.cluster.zhy.k8s.local"
 ```
@@ -35,7 +35,7 @@ $ aws --profile bjs iam list-roles | grep "nodes.cluster"
 Attach `iam-policy.json` as extra role policy to the node role.
 
 ```bash
-aws --profile bjs iam put-role-policy --role-name nodes.cluster.zhy.k8s.local --policy-name alb-ingress-extra --policy-document file://iam-policy.json
+aws iam put-role-policy --role-name nodes.cluster.zhy.k8s.local --policy-name alb-ingress-extra --policy-document file://iam-policy.json
 ```
 
 
