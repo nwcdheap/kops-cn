@@ -30,7 +30,7 @@
 
 `kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://github.com/kubernetes/kops/blob/master/channels/stable)查看。
 
-目前提供`1.13` and `1.14`两个主要版本提供选择，default是`1.14`, 但也可以指定使用`1.13`.
+目前提供`1.13` , `1.14` and `1.15`三个主要版本提供选择，default是`1.15`
 
 此`README`文件最后一次更新时间所对应的稳定版本是：
 
@@ -38,6 +38,7 @@
 | ------ | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | 1.13 | 1.13.0([#101](https://github.com/nwcdlabs/kops-cn/issues/101)) | 1.13.10      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
 | 1.14 | 1.14.0([#114](https://github.com/nwcdlabs/kops-cn/issues/114)) | 1.14.6      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
+| 1.15 | 1.15.0([#118](https://github.com/nwcdlabs/kops-cn/issues/118)) | 1.15.5 | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
 
 
 
@@ -55,8 +56,8 @@ $ cd kops-cn-master
 您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
 ```bash
-kops_version='1.14.0'
-k8s_version='v1.14.6'
+kops_version='1.15.0'
+k8s_version='v1.15.5'
 #
 # for Linux Environment
 #
