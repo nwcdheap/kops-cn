@@ -12,6 +12,7 @@
 #gcr.io/google_containers/etcd:2.2.1
 
 kope/dns-controller:1.14.0
+kope/dns-controller:1.15.0
 kopeio/etcd-manager:3.0.20190930
 
 
