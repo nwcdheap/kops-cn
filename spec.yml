@@ -5,4 +5,4 @@ spec:
   docker:
     logDriver: ""
     registryMirrors:
-        - https://registry.docker-cn.com
+        - https://hub.c.163.com
