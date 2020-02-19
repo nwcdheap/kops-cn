@@ -16,8 +16,6 @@ kope/dns-controller:1.15.0
 kope/dns-controller:1.15.2
 kopeio/etcd-manager:3.0.20190930
 
-
-
 602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon-k8s-cni:v1.5.3
 k8s.gcr.io/coredns:1.3.1
 
