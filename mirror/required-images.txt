@@ -13,6 +13,7 @@
 
 kope/dns-controller:1.14.1
 kope/dns-controller:1.15.0
+kope/dns-controller:1.15.2
 kopeio/etcd-manager:3.0.20190930
 
 
