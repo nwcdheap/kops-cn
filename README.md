@@ -223,8 +223,6 @@ aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[re
 
 
 
-
-
 ## 如何得知`required-images.txt`在ECR所对应的完整路径？
 
 参考[这里](https://github.com/nwcdlabs/kops-cn/issues/54) 
