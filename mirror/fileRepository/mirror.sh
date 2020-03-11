@@ -1,8 +1,11 @@
 #!/bin/bash
 
-KOPS_VERSION='1.10.0'
+#KOPS_VERSION='1.11.1'
+KOPS_VERSION='1.16.0'
+#KOPS_VERSION='1.14.1'
 # K8s recommended version for Kops: https://github.com/kubernetes/kops/blob/master/channels/stable
-K8S_RECOMMENDED_VERSION='1.10.11'
+#K8S_RECOMMENDED_VERSION='1.11.9'
+K8S_RECOMMENDED_VERSION="${1-1.16.7}"
 
 KUBERNETES_ASSETS=(
   release/v${K8S_RECOMMENDED_VERSION}/
@@ -17,12 +20,13 @@ mirror_kubernetes_release(){
         fi
         echo gsutil rsync -d -r gs://kubernetes-release/$asset ./kubernetes-release/$asset
         gsutil -m rsync -d -r \
-	      -x ".*s390x|.*ppc64le|.*-arm" \
+	      -x ".*s390x|.*ppc64le|.*windows|.*-arm|.*arm" \
 	      gs://kubernetes-release/$asset ./kubernetes-release/$asset
     done
 }
 
 sync_release_to_s3(){
+    echo "start sync_release_to_s3()"
     aws --profile=bjs s3 sync ./kubernetes-release/ s3://kubernetes-release/ --acl public-read
 }
 
@@ -35,6 +39,7 @@ mirror_kubeupv2(){
         fi
         wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/kops -O $TMPDIR/$platform/amd64/kops
         wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/kops.sha1 -O $TMPDIR/$platform/amd64/kops.sha1
+        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/$platform/amd64/kops.sha256 -O $TMPDIR/$platform/amd64/kops.sha256
     done
 
 
@@ -42,6 +47,7 @@ mirror_kubeupv2(){
     do
         wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/linux/amd64/$file -O $TMPDIR/linux/amd64/$file
         wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/linux/amd64/$file.sha1 -O $TMPDIR/linux/amd64/$file.sha1
+        wget -c https://kubeupv2.s3.amazonaws.com/kops/$KOPS_VERSION/linux/amd64/$file.sha256 -O $TMPDIR/linux/amd64/$file.sha256
     done
 
     if [[ ! -d $TMPDIR/images ]]; then
@@ -59,10 +65,10 @@ mirror_kubeupv2(){
 mirror_fileRepo(){
     aws --profile bjs s3 sync s3://kubernetes-release/ s3://kops-bjs/fileRepository/kubernetes-release/ --acl public-read
     aws --profile bjs s3 sync s3://kubeupv2/ s3://kops-bjs/fileRepository/kubeupv2/ --acl=public-read
-    aws --profile bjs s3 sync s3://kubeupv2/kops/$KOPS_VERSION s3://kops-bjs/fileRepository/kops/$KOPS_VERSION --acl public-read 
+    aws --profile bjs s3 sync s3://kubeupv2/kops/$KOPS_VERSION s3://kops-bjs/fileRepository/kops/$KOPS_VERSION --acl public-read
 }
 
-mirror_kubernetes_release && \
-sync_release_to_s3 && \
-mirror_kubeupv2 && \
+mirror_kubernetes_release;
+sync_release_to_s3;
+mirror_kubeupv2;
 mirror_fileRepo
