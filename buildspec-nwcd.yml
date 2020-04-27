@@ -1,0 +1,26 @@
+version: 0.2
+
+env:
+  variables:
+    FOO: "bar"
+  parameter-store:
+    ak: "bjs-ecr-ak"
+    sk: "bjs-ecr-sk"
+
+phases:
+  install:
+    runtime-versions: 
+        docker: 18
+  pre_build:
+    commands:
+      - echo "authenticate to Amazon ECR(cn-north-1)"
+      - bash ./mirror/codebuild/bin/bjs_ecr_auth.sh
+  build:
+    commands:
+      - cd mirror; bash mirror-images-nwcd.sh
+  post_build:
+    commands:
+      - echo "post_build phase"
+artifacts:
+  # files: 
+  discard-paths: yes

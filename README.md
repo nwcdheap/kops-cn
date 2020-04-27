@@ -1,4 +1,4 @@
-![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+![](https://codebuild.ap-northeast-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOXZrQUkxelFwSUdYNjVCMTBtVlp2M3lQcFUzTkVKaTNLcmtySlVoZFpwR2QwUjVWNjFpSjlaN3p1U2wyVTYzMXIvaGRZeVliN0VDQlBSM2FGUE00WWUwPSIsIml2UGFyYW1ldGVyU3BlYyI6IjNpcmx1b2dMZkdXWHp3Z3kiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 [English README](./README_en.md)
 
@@ -7,6 +7,10 @@
 当您对方案需要进一步的沟通和反馈后，可以联系 nwcd_labs@nwcdcloud.cn 获得更进一步的支持。<br>
 欢迎联系参与方案共建和提交方案需求, 也欢迎在 github 项目issue中留言反馈bugs。    
 
+# 重要通知
+随着[EKS](https://www.amazonaws.cn/eks/)在China区域的推出，本项目逐步停止维护，计划于2020年10月31日关闭本项目，相关镜像文件将删除。  
+各位可参考新项目[container-mirror](https://github.com/nwcdlabs/container-mirror)使用相关镜像。  
+即日起，本项目镜像地址有变更，由**937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn**变更为**048912060910.dkr.ecr.cn-north-1.amazonaws.com.cn**。  
 
 
 # kops-cn项目介绍
@@ -17,28 +21,24 @@
 
 
 # 特性
-- [x] 集群创建过程中所需的docker镜像已存放在 **宁夏** 或 **北京** 区域的`Amazon ECR`中。
+- [x] 集群创建过程中所需的docker镜像已存放在 **北京** 区域的`Amazon ECR`中。
 - [x] 集群创建过程中所需的二进制文件或配置文件已存放在 **北京** 区域的`Amazon S3`桶中 。
 - [x] 简单快速的集群搭建和部署
 - [x] 无需任何VPN代理或翻墙设置
-- [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**([buildspec.yml](https://github.com/nwcdlabs/kops-cn/blob/master/buildspec.yml))  去拉取镜像并存放到AWS `cn-north-1` 的ECR中。查看： [镜像列表](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt).
+- [x] 如有新的Docker镜像拉取需求，您可以创建Github push or pull request,您的request会触发**CodeBuild**([buildspec-nwcd.yml](./buildspec-nwcd.yml))  去拉取镜像并存放到AWS `cn-north-1` 的ECR中。查看： [镜像列表](./mirror/required-images.txt).
 - [x] 一个`make create-cluster`命令即可创建集群
 
 
 
 # 当前版本
 
-`kops-cn`专案保持跟[上游kops专案](https://github.com/kubernetes/kops)版本一致, 上游最新的kops版本可以在[kubernetes/kops/releases/latest](https://github.com/kubernetes/kops/releases/latest)查看, 而kops对应的建议k8s版本，则可以从[stable channels](https://github.com/kubernetes/kops/blob/master/channels/stable)查看。
 
-目前提供`1.13` , `1.14` and `1.15`三个主要版本提供选择，default是`1.15`
+现仅提供`1.15`版本
 
-此`README`文件最后一次更新时间所对应的稳定版本是：
 
 |    主版本    | Kops最新版本                                                 | K8s搭配版本 | AMI                                                          |
 | ------ | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| 1.13 | 1.13.0([#101](https://github.com/nwcdlabs/kops-cn/issues/101)) | 1.13.12      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
-| 1.14 | 1.14.1([#116](https://github.com/nwcdlabs/kops-cn/issues/116)) | 1.14.8      | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
-| 1.15 | 1.15.0([#118](https://github.com/nwcdlabs/kops-cn/issues/118)) | 1.15.5 | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
+| 1.15 | 1.15.2([#118](https://github.com/nwcdlabs/kops-cn/issues/118)) | 1.15.10 | kope.io/k8s-1.12-debian-stretch-amd64-hvm-ebs-2019-05-13（[#96](https://github.com/nwcdlabs/kops-cn/issues/96)） |
 
 
 
@@ -46,9 +46,8 @@
 
 1. 下载项目到本地
 ```
-$ curl  https://github.com/nwcdlabs/kops-cn/archive/master.zip -L -o kops-cn.zip
-$ unzip kops-cn
-$ cd kops-cn-master
+$ git clone https://github.com/nwcdlabs/kops-cn
+$ cd kops-cn
 ```
 
 2. 在本机安装`kops` and `kubectl`命令行客户端： [安装指导](https://github.com/kubernetes/kops/blob/master/docs/install.md)
@@ -56,17 +55,17 @@ $ cd kops-cn-master
 您也可以直接从以下链接的AWS中国区域的S3桶中下载 `kops` and `kubectl` 的二进制文件：
 
 ```bash
-kops_version='1.15.0'
-k8s_version='v1.15.5'
+kops_version='1.15.2'
+k8s_version='v1.15.10'
 #
 # for Linux Environment
 #
 # download kops for linux
-$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/$kops_version/linux/amd64/kops -o kops
+$ curl -L https://s3.cn-northwest-1.amazonaws.com.cn/kops-file/fileRepository/kops/$kops_version/linux/amd64/kops -o kops
 $ chmod +x $_
 
 # download kubectl for linux
-$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/$k8s_version/bin/linux/amd64/kubectl -o kubectl
+$ curl -L https://s3.cn-northwest-1.amazonaws.com.cn/kops-file/fileRepository/kubernetes-release/release/$k8s_version/bin/linux/amd64/kubectl -o kubectl
 $ chmod +x $_
 
 #
@@ -74,11 +73,11 @@ $ chmod +x $_
 #
 
 # download kops for mac os x
-$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kops/$kops_version/darwin/amd64/kops -o kops
+$ curl -L https://s3.cn-northwest-1.amazonaws.com.cn/kops-file/fileRepository/kops/$kops_version/darwin/amd64/kops -o kops
 $ chmod +x $_
 
 # download kubectl for mac os x
-$ curl -L https://s3.cn-north-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/$k8s_version/bin/darwin/amd64/kubectl -o kubectl
+$ curl -L https://s3.cn-northwest-1.amazonaws.com.cn/kops-bjs/fileRepository/kubernetes-release/release/$k8s_version/bin/darwin/amd64/kubectl -o kubectl
 $ chmod +x $_
 
 
@@ -92,7 +91,7 @@ $ sudo mv ./kubectl /usr/local/bin/
 # 再次确认kops and kubectl是当前稳定版本
 #
 $ kops version
-$ kubectl version	
+$ kubectl version
 ```
 
 
@@ -131,9 +130,9 @@ make create-cluster
 make edit-cluster
 ```
 
-将 `spec.yml` 中内容贴到`spec` 下并保存退出。
+将 `spec-nwcd.yml` 中内容贴到`spec` 下并保存退出。
 
-![](https://user-images.githubusercontent.com/278432/47897276-084ff880-deac-11e8-92db-b2fdf10e10b4.png)
+![](./images/spec-nwcd.png)
 
 6. 更新集群
 ```
@@ -197,19 +196,10 @@ make delete-cluster
 ## 我可以把master nodes运行在private subnet吗？如何配置？
 参考这个说明:[#94](https://github.com/nwcdlabs/kops-cn/issues/94#issuecomment-512844772)
 
-## 如何使用最新的Kops 1.13?
-Kops上游[已经relaese](https://github.com/kubernetes/kops/releases/tag/1.13.0) 1.13版本, 目前已经验证可以运行在北京与宁夏Region，请参考这个说明（[#101](https://github.com/nwcdlabs/kops-cn/issues/101)）直接在make命令前指定版本即可，请注意，Kops client客户端也要升级到相应的版本，可以用
-
-```bash
-kops version
-```
-来验证客户端版本。
-
-
 ## 我需要的docker镜像在ECR中不存在.
 aws北京区域ECR中的镜像仓库`containerRegistry` 中的已有镜像见[required-images-mirrored.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images-mirrored.txt), (參考[#105](https://github.com/nwcdlabs/kops-cn/issues/105))如您在集群创建过程中需要其他镜像, 请您编辑 [required-images.txt](https://github.com/nwcdlabs/kops-cn/blob/master/mirror/required-images.txt) ，这将会在您的GitHub账户中 fork 一个新的分支，之后您可以提交PR（pull request）。 Merge您的PR会触发`CodeBuild` 去拉取 `required-images.txt` 中定义的镜像回ECR库。 数分钟后，您可以看到图标从`in progress`变为`passing`
 
-当前状态：![](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoibG51QU90bjlHekkzNlJkTHl1M3RWWi9MdVZ0YUE2TEhIMlVTUXNobzlyWEd4eklNVkk2NzJ6MS8zcy9tZCt4UVJXUU9FWTVZVlNIQlVZZVZjeEc2R1NvPSIsIml2UGFyYW1ldGVyU3BlYyI6IlhnZm9qa1lXaTEwVUloSksiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+当前状态：![](https://codebuild.ap-northeast-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOXZrQUkxelFwSUdYNjVCMTBtVlp2M3lQcFUzTkVKaTNLcmtySlVoZFpwR2QwUjVWNjFpSjlaN3p1U2wyVTYzMXIvaGRZeVliN0VDQlBSM2FGUE00WWUwPSIsIml2UGFyYW1ldGVyU3BlYyI6IjNpcmx1b2dMZkdXWHp3Z3kiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 
 

@@ -8,8 +8,8 @@ MASTER_SIZE ?= m4.large
 NODE_SIZE ?= c5.large
 NODE_COUNT ?= 2
 SSH_PUBLIC_KEY ?= ~/.ssh/id_rsa.pub
-KUBERNETES_VERSION ?= v1.13.10
-KOPS_VERSION ?= 1.13.0
+KUBERNETES_VERSION ?= v1.15.10
+KOPS_VERSION ?= 1.15.2
 
 # do not modify following values
 AWS_DEFAULT_REGION ?= $(TARGET_REGION)
@@ -34,7 +34,7 @@ ifdef CUSTOM_CLUSTER_NAME
 	CLUSTER_NAME = $(CUSTOM_CLUSTER_NAME)
 endif
 
-KUBERNETES_VERSION_URI ?= "https://s3.cn-north-1.amazonaws.com.cn/kubernetes-release/release/$(KUBERNETES_VERSION)"
+KUBERNETES_VERSION_URI ?= "https://s3.cn-northwest-1.amazonaws.com.cn/kops-kubernetes-release/release/$(KUBERNETES_VERSION)"
 
 
 .PHONY: create-cluster

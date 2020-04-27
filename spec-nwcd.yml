@@ -1,0 +1,8 @@
+spec:
+  assets:
+    containerRegistry: 048912060910.dkr.ecr.cn-north-1.amazonaws.com.cn
+    fileRepository: https://s3.cn-northwest-1.amazonaws.com.cn/kops-file/fileRepository/
+  docker:
+    logDriver: ""
+    registryMirrors:
+        - https://hub.c.163.com
